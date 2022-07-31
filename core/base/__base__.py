@@ -349,7 +349,7 @@ def main():
                             for exploit in loaded_modules_exploits.keys():
                                 num+=int(exploit)
                                 if num < 10:
-                                    expl += f"\n{exploit}                       {loaded_modules_exploits[exploit]}"
+                                    expl += f"\n{exploit}                        {loaded_modules_exploits[exploit]}"
                                 elif num > 10:
                                     expl += f"\n{exploit}                      {loaded_modules_exploits[exploit]}"
                             print(f"\n{expl}\n")
@@ -361,7 +361,7 @@ def main():
                             for payload in loaded_modules_payloads.keys():
                                 num+=int(payload)
                                 if num < 10:
-                                    expl += f"\n{payload}                       {loaded_modules_payloads[payload]}"
+                                    expl += f"\n{payload}                        {loaded_modules_payloads[payload]}"
                                 elif num > 10:
                                     expl += f"\n{payload}                      {loaded_modules_payloads[payload]}"
                             print(f"\n{expl}\n")
@@ -373,7 +373,7 @@ def main():
                             for post in loaded_modules_posts.keys():
                                 num+=int(post)
                                 if num < 10:
-                                    expl += f"\n{post}                       {loaded_modules_posts[post]}"
+                                    expl += f"\n{post}                        {loaded_modules_posts[post]}"
                                 elif num > 10:
                                     expl += f"\n{post}                      {loaded_modules_posts[post]}"
                             print(f"\n{expl}\n")
@@ -385,7 +385,7 @@ def main():
                             for usb in loaded_modules_usbs.keys():
                                 num+=int(usb)
                                 if num < 10:
-                                    expl += f"\n{usb}                       {loaded_modules_usbs[usb]}"
+                                    expl += f"\n{usb}                        {loaded_modules_usbs[usb]}"
                                 elif num > 10:
                                     expl += f"\n{usb}                      {loaded_modules_usbs[usb]}"
                             print(f"\n{expl}\n")
@@ -397,7 +397,7 @@ def main():
                             for all in loaded_modules_all.keys():
                                 num+=int(all)
                                 if num < 10:
-                                    expl += f"\n{all}                       {loaded_modules_all[all]}"
+                                    expl += f"\n{all}                        {loaded_modules_all[all]}"
                                 elif num > 10:
                                     expl += f"\n{all}                      {loaded_modules_all[all]}"
                             print(f"\n{expl}\n")
@@ -587,4 +587,12 @@ def main():
 
 load_modules()
 show_banner()
+for i in loaded_modules_exploits:
+    exploits += 1
+for n in loaded_modules_payloads:
+    payloads += 1
+for k in loaded_modules_posts:
+    posts += 1
+for l in loaded_modules_usbs:
+    usbs += 1
 main()
