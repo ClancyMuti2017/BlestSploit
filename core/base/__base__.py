@@ -339,8 +339,8 @@ def main():
             else:
                 try:
                     expl = '''
-#                       Modül Adı
--                       -----------'''
+Modül Adı
+-----------'''
                     if btf[1] == '-e':
                         num = 0
                         if loaded_modules_exploits == {} or loaded_modules_exploits == {'\n'}:
@@ -348,13 +348,7 @@ def main():
                         else:
                             for exploit in loaded_modules_exploits.keys():
                                 num+=int(exploit)
-                                if num < 10:
-                                    if num >= 5 and num <= 9:
-                                        expl += f"\n{exploit}                        {loaded_modules_exploits[exploit]}"
-                                    else:
-                                        expl += f"\n{exploit}                       {loaded_modules_exploits[exploit]}"
-                                elif num > 10:
-                                    expl += f"\n{exploit}                      {loaded_modules_exploits[exploit]}"
+                                expl += loaded_modules_exploits[exploit]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-p':
                         num = 0
@@ -363,10 +357,7 @@ def main():
                         else:
                             for payload in loaded_modules_payloads.keys():
                                 num+=int(payload)
-                                if num < 10:
-                                    expl += f"\n{payload}                       {loaded_modules_payloads[payload]}"
-                                elif num > 10:
-                                    expl += f"\n{payload}                      {loaded_modules_payloads[payload]}"
+                                expl += loaded_modules_payloads[payload]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-ps':
                         num = 0
@@ -375,10 +366,7 @@ def main():
                         else:
                             for post in loaded_modules_posts.keys():
                                 num+=int(post)
-                                if num < 10:
-                                    expl += f"\n{post}                       {loaded_modules_posts[post]}"
-                                elif num > 10:
-                                    expl += f"\n{post}                      {loaded_modules_posts[post]}"
+                                expl += loaded_modules_posts[post]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-u':
                         num = 0
@@ -387,10 +375,7 @@ def main():
                         else:
                             for usb in loaded_modules_usbs.keys():
                                 num+=int(usb)
-                                if num < 10:
-                                    expl += f"\n{usb}                       {loaded_modules_usbs[usb]}"
-                                elif num > 10:
-                                    expl += f"\n{usb}                      {loaded_modules_usbs[usb]}"
+                                expl += loaded_modules_usbs[usb]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-a':
                         num = 0
@@ -399,10 +384,7 @@ def main():
                         else:
                             for all in loaded_modules_all.keys():
                                 num+=int(all)
-                                if num < 10:
-                                    expl += f"\n{all}                       {loaded_modules_all[all]}"
-                                elif num > 10:
-                                    expl += f"\n{all}                      {loaded_modules_all[all]}"
+                                expl += loaded_modules_all[all]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-o':
                         print(Fore.RED+'[-]'+Fore.RESET+' Lütfen bu komutu kullanmadan önce bir modül kullanın!')
@@ -422,8 +404,8 @@ def main():
                             if btf[2] in loaded_modules_exploits.keys():
                                 accept = True
                             else:
-                                for check in loaded_modules_exploits:
-                                    if check == btf[2]:
+                                for check in loaded_modules_exploits.keys():
+                                    if loaded_modules_exploits[check] == btf[2]:
                                         accept = True
                                         break
                             if accept:
@@ -435,8 +417,8 @@ def main():
                             if btf[2] in loaded_modules_payloads.keys():
                                 accept = True
                             else:
-                                for check in loaded_modules_payloads:
-                                    if check == btf[2]:
+                                for check in loaded_modules_payloads.keys():
+                                    if loaded_modules_payloads[check] == btf[2]:
                                         accept = True
                                         break
                             if accept:
@@ -448,8 +430,8 @@ def main():
                             if btf[2] in loaded_modules_posts.keys():
                                 accept = True
                             else:
-                                for check in loaded_modules_posts:
-                                    if check == btf[2]:
+                                for check in loaded_modules_posts.keys():
+                                    if loaded_modules_posts[check] == btf[2]:
                                         accept = True
                                         break
                             if accept:
@@ -461,8 +443,8 @@ def main():
                             if btf[2] in loaded_modules_usbs.keys():
                                 accept = True
                             else:
-                                for check in loaded_modules_usbs:
-                                    if check == btf[2]:
+                                for check in loaded_modules_usbs.keys():
+                                    if loaded_modules_usbs[check] == btf[2]:
                                         accept = True
                                         break
                             if accept:
@@ -475,7 +457,6 @@ def main():
                         if accept:
                             cr = btf[2]
                             if cr.isdigit():
-                                cr = int(cr)
                                 if load == "exploit":
                                     cr = loaded_modules_exploits[cr]
                                 elif load == "payload":
