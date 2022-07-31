@@ -92,8 +92,8 @@ def run():
         num = 0
         for repl in module_options.keys():
             num += 1
-            if "$"+num in module_prefix:
-                module_prefix = module_prefix.replace(f"${num}", module_options[repl][1])
+            if "$"+str(num) in module_prefix:
+                module_prefix = module_prefix.replace(f"${str(num)}", module_options[repl][1])
         try:
             os.system(f"python3 {execute} {module_prefix}")
         except:
