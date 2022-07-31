@@ -348,7 +348,7 @@ Modül Adı
                         else:
                             for exploit in loaded_modules_exploits.keys():
                                 num+=int(exploit)
-                                expl += loaded_modules_exploits[exploit]
+                                expl += "\n"+loaded_modules_exploits[exploit]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-p':
                         num = 0
@@ -357,7 +357,7 @@ Modül Adı
                         else:
                             for payload in loaded_modules_payloads.keys():
                                 num+=int(payload)
-                                expl += loaded_modules_payloads[payload]
+                                expl += "\n"+loaded_modules_payloads[payload]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-ps':
                         num = 0
@@ -366,7 +366,7 @@ Modül Adı
                         else:
                             for post in loaded_modules_posts.keys():
                                 num+=int(post)
-                                expl += loaded_modules_posts[post]
+                                expl += "\n"+loaded_modules_posts[post]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-u':
                         num = 0
@@ -375,7 +375,7 @@ Modül Adı
                         else:
                             for usb in loaded_modules_usbs.keys():
                                 num+=int(usb)
-                                expl += loaded_modules_usbs[usb]
+                                expl += "\n"+loaded_modules_usbs[usb]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-a':
                         num = 0
@@ -384,7 +384,7 @@ Modül Adı
                         else:
                             for all in loaded_modules_all.keys():
                                 num+=int(all)
-                                expl += loaded_modules_all[all]
+                                expl += "\n"+loaded_modules_all[all]
                             print(f"\n{expl}\n")
                     elif btf[1] == '-o':
                         print(Fore.RED+'[-]'+Fore.RESET+' Lütfen bu komutu kullanmadan önce bir modül kullanın!')
