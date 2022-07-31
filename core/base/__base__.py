@@ -77,9 +77,9 @@ echo "$REMOVABLE_DRIVES"
 # fi
 '''
 welcome = '''
-+ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework'''+version+Fore.RESET+'''
-- -- ---={ Tüm Exploitler :'''+exploits+'''Tüm Payloadlar :'''+payloads+'''    
-- -- ---={ Tüm USB Exploitler :'''+usbs+'''Tüm POSTlar :'''+posts+'''
++ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+Fore.RESET+'''
+- -- ---={ Tüm Exploitler :'''+str(exploits)+'''Tüm Payloadlar :'''+str(payloads)+'''    
+- -- ---={ Tüm USB Exploitler :'''+str(usbs)+'''Tüm POSTlar :'''+str(posts)+'''
 '''
 root = os.listdir("/root/.btf")
 if root == [] or root == ['\n'] or root == False:
@@ -586,7 +586,6 @@ def main():
             print(Fore.RED+'[-]'+Fore.RESET+' Bilinmeyen komut: "'+btf[0]+'"')
 
 load_modules()
-show_banner()
 for i in loaded_modules_exploits:
     exploits += 1
 for n in loaded_modules_payloads:
@@ -595,4 +594,5 @@ for k in loaded_modules_posts:
     posts += 1
 for l in loaded_modules_usbs:
     usbs += 1
+show_banner()
 main()
