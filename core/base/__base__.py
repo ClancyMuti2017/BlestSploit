@@ -76,11 +76,6 @@ echo "$REMOVABLE_DRIVES"
 #     echo "'/dev/sdg' bir USB cihazı değil"
 # fi
 '''
-welcome = '''
-+ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+Fore.RESET+'''
-- -- ---={ Tüm Exploitler : '''+str(exploits)+''' Tüm Payloadlar : '''+str(payloads)+'''    
-- -- ---={ Tüm USB Exploitler : '''+str(usbs)+''' Tüm POSTlar : '''+str(posts)+'''
-'''
 root = os.listdir("/root/.btf")
 if root == [] or root == ['\n'] or root == False:
     pass
@@ -409,7 +404,7 @@ Modül Adı
                                         accept = True
                                         break
                             if accept:
-                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
+                                # print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
                                 load = "exploit"
                             else:
                                 print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[2]+'"')
@@ -422,7 +417,7 @@ Modül Adı
                                         accept = True
                                         break
                             if accept:
-                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
+                                # print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
                                 load = "payload"
                             else:
                                 print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[2]+'"')
@@ -435,7 +430,7 @@ Modül Adı
                                         accept = True
                                         break
                             if accept:
-                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
+                                # print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
                                 load = "post"
                             else:
                                 print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[2]+'"')
@@ -448,7 +443,7 @@ Modül Adı
                                         accept = True
                                         break
                             if accept:
-                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
+                                # print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
                                 load = "usb"
                             else:
                                 print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[2]+'"')
@@ -582,5 +577,10 @@ for k in loaded_modules_posts.keys():
     posts += 1
 for l in loaded_modules_usbs.keys():
     usbs += 1
+welcome = '''
++ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+Fore.RESET+'''
+- -- ---={ Tüm Exploitler : '''+str(exploits)+''' Tüm Payloadlar : '''+str(payloads)+'''    
+- -- ---={ Tüm USB Exploitler : '''+str(usbs)+''' Tüm POSTlar : '''+str(posts)+'''
+'''
 show_banner()
 main()
