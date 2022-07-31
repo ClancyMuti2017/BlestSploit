@@ -1,1 +1,2 @@
+sleep 1
 python3 /usr/share/blest-framework/src/data/core/base/__base__.py

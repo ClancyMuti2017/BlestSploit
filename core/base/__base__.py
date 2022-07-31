@@ -409,7 +409,7 @@ Modül Adı
                                         accept = True
                                         break
                             if accept:
-                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül '+btf[2]+' Yükleniyor...')
+                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
                                 load = "exploit"
                             else:
                                 print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[2]+'"')
@@ -422,7 +422,7 @@ Modül Adı
                                         accept = True
                                         break
                             if accept:
-                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül '+btf[2]+' Yükleniyor...')
+                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
                                 load = "payload"
                             else:
                                 print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[2]+'"')
@@ -435,7 +435,7 @@ Modül Adı
                                         accept = True
                                         break
                             if accept:
-                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül '+btf[2]+' Yükleniyor...')
+                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
                                 load = "post"
                             else:
                                 print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[2]+'"')
@@ -448,7 +448,7 @@ Modül Adı
                                         accept = True
                                         break
                             if accept:
-                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül '+btf[2]+' Yükleniyor...')
+                                print(Fore.BLUE+'[i]'+Fore.RESET+' Modül "'+btf[2]+'" Yükleniyor...')
                                 load = "usb"
                             else:
                                 print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[2]+'"')
