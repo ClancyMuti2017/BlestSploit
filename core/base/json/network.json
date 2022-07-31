@@ -1,0 +1,11 @@
+{
+    "network_path": "/usr/share/blest-framework/network",
+    "registry_path": "/usr/share/blest-framework/network/registry",
+    "hci_path": "/usr/share/blest-framework/network/registry/hci.ini",
+    "wlan_path": "/usr/share/blest-framework/network/registry/wlan.ini",
+    "config_path": "/usr/share/blest-framework/network/registry/config.ini",
+    "default": {
+        "wlan": "wlan0",
+        "ble": "hci0"
+    }
+}

