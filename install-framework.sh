@@ -7,6 +7,7 @@ sleep 1
 mkdir /usr/share/blest-framework
 mkdir /usr/share/blest-framework/devices
 mkdir /usr/share/blest-framework/devices/USB
+echo ""
 echo "[i] Python Kontrol etiliyor ve yükleniyor (Python3)..."
 apt install python-is-python3 python3-pip -y &>> cache/apt-log.log
 apt install python2 -y &>> cache/apt-log.log
