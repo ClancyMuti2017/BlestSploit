@@ -490,36 +490,39 @@ Modül Adı
         elif btf[0] == 'banner':
             show_banner()
         elif btf[0] == 'info':
-            try:
-                ch = ""
-                current = ""
-                info = '''
-'''
-                to_break = False
-                if "/" in btf[2]:
-                    if str(btf[2]) in loaded_modules:
-                        for desc in module_descriptions.keys():
-                            if to_break:
-                                break
-                            for typ in add:
-                                if typ in desc:
-                                    ch = str(desc).replace(typ, "")
-                                    current = desc
-                                    if ch in btf[2]:
-                                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Açıklaması: "'+module_descriptions[desc]+'"')
-                                        print('------------------------------------------------------------------------------------------------------------------------------')
-                                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Tam dosya adı: "'+desc+'"')
-                                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Adı: "'+btf[2]+'"')
-                                        # print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü yazan: Blest Boyz Team')
-                                        # print(Fore.BLUE+'[i]'+Fore.RESET+' Modül versiyonu: Tüm sürümler?')
-                                        to_break = True
-                                        break
+            if len(btf) < 2:
+                print(Fore.RED+'[-]'+Fore.RESET+' Kullanım: info <module>')
+            else:
+                try:
+                    ch = ""
+                    current = ""
+                    info = '''
+    '''
+                    to_break = False
+                    if "/" in btf[1]:
+                        if str(btf[1]) in loaded_modules:
+                            for desc in module_descriptions.keys():
+                                if to_break:
+                                    break
+                                for typ in add:
+                                    if typ in desc:
+                                        ch = str(desc).replace(typ, "")
+                                        current = desc
+                                        if ch in btf[1]:
+                                            print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Açıklaması: "'+module_descriptions[desc]+'"')
+                                            print('------------------------------------------------------------------------------------------------------------------------------')
+                                            print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Tam dosya adı: "'+desc+'"')
+                                            print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Adı: "'+btf[1]+'"')
+                                            # print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü yazan: Blest Boyz Team')
+                                            # print(Fore.BLUE+'[i]'+Fore.RESET+' Modül versiyonu: Tüm sürümler?')
+                                            to_break = True
+                                            break
+                        else:
+                            print(Fore.RED+'[-]'+Fore.RESET+' Modül yok: "'+btf[1]+'"')
                     else:
-                        print(Fore.RED+'[-]'+Fore.RESET+' Modül yok: "'+btf[2]+'"')
-                else:
-                    print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül Adı: "'+btf[2]+'"')
-            except:
-                pass
+                        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül Adı: "'+btf[1]+'"')
+                except:
+                    pass
         elif btf[0] == 'usb':
             if usb_device == "" or usb_device == []:
                 print(Fore.RED+'[-]'+Fore.RESET+' USB cihazı yok! lütfen birini seçin!')
