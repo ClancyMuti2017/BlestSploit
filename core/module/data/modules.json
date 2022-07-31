@@ -92,7 +92,7 @@
         }
     },
     "10": {
-        "name": "apache",
+        "name": "apache_rce",
         "version": "1.0.1",
         "author": "Blest Boyz",
         "prefix": "$1:$2",

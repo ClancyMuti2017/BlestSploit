@@ -8,7 +8,7 @@
     "rental_unit.py": "RCE, Web Shell Yükleme ve Reverse TCP",
     "online_learning_rce.py": "RCE, Gelişmiş Web Shell Yükleme ve BruteForcer",
     "port_scanner.py": "Port tarayıcı, Gelişmiş IP bağlantı noktası tarayıcısı",
-    "apache.py": "Apache Web RCE, Gelişmiş Apache Güvenlik Açığı Tarayıcısı",
+    "apache_rce.py": "Apache Web RCE, Gelişmiş Apache Güvenlik Açığı Tarayıcısı",
     "gerapy.py": "RCE, Giriş ve Web Shell'i Yükleme",
     "slr-120.py": "RCE, Kimlik Doğrulama Olmadan Komutları Yürüt (Yönlendirici)",
     "wifi_mouse.py": "RCE, Kablosuz Fare Olarak/İçinde Komutu Yürüt (WiFi Mouse)",
