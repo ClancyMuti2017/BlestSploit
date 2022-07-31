@@ -78,8 +78,8 @@ echo "$REMOVABLE_DRIVES"
 '''
 welcome = '''
 + -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+Fore.RESET+'''
-- -- ---={ Tüm Exploitler :'''+str(exploits)+'''Tüm Payloadlar :'''+str(payloads)+'''    
-- -- ---={ Tüm USB Exploitler :'''+str(usbs)+'''Tüm POSTlar :'''+str(posts)+'''
+- -- ---={ Tüm Exploitler : '''+str(exploits)+''' Tüm Payloadlar : '''+str(payloads)+'''    
+- -- ---={ Tüm USB Exploitler : '''+str(usbs)+''' Tüm POSTlar : '''+str(posts)+'''
 '''
 root = os.listdir("/root/.btf")
 if root == [] or root == ['\n'] or root == False:
@@ -349,7 +349,10 @@ def main():
                             for exploit in loaded_modules_exploits.keys():
                                 num+=int(exploit)
                                 if num < 10:
-                                    expl += f"\n{exploit}                       {loaded_modules_exploits[exploit]}"
+                                    if num >= 5 and num <= 9:
+                                        expl += f"\n{exploit}                        {loaded_modules_exploits[exploit]}"
+                                    else:
+                                        expl += f"\n{exploit}                       {loaded_modules_exploits[exploit]}"
                                 elif num > 10:
                                     expl += f"\n{exploit}                      {loaded_modules_exploits[exploit]}"
                             print(f"\n{expl}\n")
@@ -586,13 +589,17 @@ def main():
             print(Fore.RED+'[-]'+Fore.RESET+' Bilinmeyen komut: "'+btf[0]+'"')
 
 load_modules()
-for i in loaded_modules_exploits:
+exploits = 0
+payloads = 0
+posts = 0
+usbs = 0
+for i in loaded_modules_exploits.keys():
     exploits += 1
-for n in loaded_modules_payloads:
+for n in loaded_modules_payloads.keys():
     payloads += 1
-for k in loaded_modules_posts:
+for k in loaded_modules_posts.keys():
     posts += 1
-for l in loaded_modules_usbs:
+for l in loaded_modules_usbs.keys():
     usbs += 1
 show_banner()
 main()
