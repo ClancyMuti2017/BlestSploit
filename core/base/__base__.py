@@ -77,7 +77,7 @@ echo "$REMOVABLE_DRIVES"
 # fi
 '''
 welcome = '''
-+ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework''', version, +Fore.RESET+'''
++ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework''', version, Fore.RESET+'''
 - -- ---={ Tüm Exploitler :''', exploits, '''Tüm Payloadlar :''', payloads, '''    
 - -- ---={ Tüm USB Exploitler :''', usbs, '''Tüm POSTlar :''', posts, '''
 '''
