@@ -330,3 +330,5 @@ def main():
                     pass
         else:
             print(Fore.RED+'[-]'+Fore.RESET+' Bilinmeyen komut: "'+mkf[0]+'"')
+load_modules()
+main()

@@ -77,9 +77,9 @@ echo "$REMOVABLE_DRIVES"
 # fi
 '''
 welcome = '''
-+ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+''''''+Fore.RESET+'''
-- -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+'''    
-- -- ---={ Tüm USB Exploitler : '''+str(usbs)+''', Tüm POSTlar : '''+str(posts)+'''
++ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework''', version, +Fore.RESET+'''
+- -- ---={ Tüm Exploitler :''', exploits, '''Tüm Payloadlar :''', payloads, '''    
+- -- ---={ Tüm USB Exploitler :''', usbs, '''Tüm POSTlar :''', posts, '''
 '''
 root = os.listdir("/root/.btf")
 if root == [] or root == ['\n'] or root == False:
@@ -214,21 +214,21 @@ def load_modules():
         loaded_modules_all.clear()
         for i in loaded_modules:
             num_all+=1
-            loaded_modules_all[num_all] = i
+            loaded_modules_all[str(num_all)] = i
             current_module = str(i).split("/")
             current_module = current_module[0]
             if current_module == "exploit" or current_module == "exploits":
                 num_ex += 1
-                loaded_modules_exploits[num_ex] = i
+                loaded_modules_exploits[str(num_ex)] = i
             elif current_module == "payload" or current_module == "payloads":
                 num_pl += 1
-                loaded_modules_payloads[num_pl] = i
+                loaded_modules_payloads[str(num_pl)] = i
             elif current_module == "post" or current_module == "posts":
                 num_ps += 1
-                loaded_modules_posts[num_ps] = i 
+                loaded_modules_posts[str(num_ps)] = i 
             elif current_module == "usb" or current_module == "usbs":
                 num_ub += 1
-                loaded_modules_usbs[num_ub] = i 
+                loaded_modules_usbs[str(num_ub)] = i 
             else:
                 unknown_modules.append(i)
     def add_module(dir, module_type):
@@ -349,7 +349,7 @@ def main():
                             for exploit in loaded_modules_exploits.keys():
                                 num+=int(exploit)
                                 if num < 10:
-                                    expl += f"\n{exploit}                        {loaded_modules_exploits[exploit]}"
+                                    expl += f"\n{exploit}                       {loaded_modules_exploits[exploit]}"
                                 elif num > 10:
                                     expl += f"\n{exploit}                      {loaded_modules_exploits[exploit]}"
                             print(f"\n{expl}\n")
@@ -361,7 +361,7 @@ def main():
                             for payload in loaded_modules_payloads.keys():
                                 num+=int(payload)
                                 if num < 10:
-                                    expl += f"\n{payload}                        {loaded_modules_payloads[payload]}"
+                                    expl += f"\n{payload}                       {loaded_modules_payloads[payload]}"
                                 elif num > 10:
                                     expl += f"\n{payload}                      {loaded_modules_payloads[payload]}"
                             print(f"\n{expl}\n")
@@ -373,7 +373,7 @@ def main():
                             for post in loaded_modules_posts.keys():
                                 num+=int(post)
                                 if num < 10:
-                                    expl += f"\n{post}                        {loaded_modules_posts[post]}"
+                                    expl += f"\n{post}                       {loaded_modules_posts[post]}"
                                 elif num > 10:
                                     expl += f"\n{post}                      {loaded_modules_posts[post]}"
                             print(f"\n{expl}\n")
@@ -385,7 +385,7 @@ def main():
                             for usb in loaded_modules_usbs.keys():
                                 num+=int(usb)
                                 if num < 10:
-                                    expl += f"\n{usb}                        {loaded_modules_usbs[usb]}"
+                                    expl += f"\n{usb}                       {loaded_modules_usbs[usb]}"
                                 elif num > 10:
                                     expl += f"\n{usb}                      {loaded_modules_usbs[usb]}"
                             print(f"\n{expl}\n")
@@ -397,7 +397,7 @@ def main():
                             for all in loaded_modules_all.keys():
                                 num+=int(all)
                                 if num < 10:
-                                    expl += f"\n{all}                        {loaded_modules_all[all]}"
+                                    expl += f"\n{all}                       {loaded_modules_all[all]}"
                                 elif num > 10:
                                     expl += f"\n{all}                      {loaded_modules_all[all]}"
                             print(f"\n{expl}\n")
@@ -419,7 +419,7 @@ def main():
                             if btf[2] in loaded_modules_exploits.keys():
                                 accept = True
                             else:
-                                for check in loaded_modules_exploits.items():
+                                for check in loaded_modules_exploits:
                                     if check == btf[2]:
                                         accept = True
                                         break
@@ -432,7 +432,7 @@ def main():
                             if btf[2] in loaded_modules_payloads.keys():
                                 accept = True
                             else:
-                                for check in loaded_modules_payloads.items():
+                                for check in loaded_modules_payloads:
                                     if check == btf[2]:
                                         accept = True
                                         break
@@ -445,7 +445,7 @@ def main():
                             if btf[2] in loaded_modules_posts.keys():
                                 accept = True
                             else:
-                                for check in loaded_modules_posts.items():
+                                for check in loaded_modules_posts:
                                     if check == btf[2]:
                                         accept = True
                                         break
@@ -458,7 +458,7 @@ def main():
                             if btf[2] in loaded_modules_usbs.keys():
                                 accept = True
                             else:
-                                for check in loaded_modules_usbs.items():
+                                for check in loaded_modules_usbs:
                                     if check == btf[2]:
                                         accept = True
                                         break
