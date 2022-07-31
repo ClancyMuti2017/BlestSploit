@@ -77,9 +77,9 @@ echo "$REMOVABLE_DRIVES"
 # fi
 '''
 welcome = '''
-+ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework''', version, Fore.RESET+'''
-- -- ---={ Tüm Exploitler :''', exploits, '''Tüm Payloadlar :''', payloads, '''    
-- -- ---={ Tüm USB Exploitler :''', usbs, '''Tüm POSTlar :''', posts, '''
++ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework'''+version+Fore.RESET+'''
+- -- ---={ Tüm Exploitler :'''+exploits+'''Tüm Payloadlar :'''+payloads+'''    
+- -- ---={ Tüm USB Exploitler :'''+usbs+'''Tüm POSTlar :'''+posts+'''
 '''
 root = os.listdir("/root/.btf")
 if root == [] or root == ['\n'] or root == False:
