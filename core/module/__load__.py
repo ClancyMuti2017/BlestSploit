@@ -116,11 +116,11 @@ def run():
         sys.exit()
     for ch in module_options.keys():
         if module_options[ch][1] == "":
-            not_sp += ch+' '
+            not_sp += ch+', '
     if not_sp == "":
         ex()
     else:
-        print(Fore.RED+'[-]'+Fore.RESET+f' Gerekli seçenekler ayarlanmamış: ({not_sp})')
+        print(Fore.RED+'[-]'+Fore.RESET+f' Gerekli seçenekler ayarlanmamış: {str(not_sp).lstrip()}')
 
 
 def main():
