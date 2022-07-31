@@ -2,9 +2,6 @@ import os, sys, subprocess, colorama, random, time, json
 from colorama import *
 import jsbeautifier
 init()
-if len(sys.argv) < 5:
-    exit()
-
 database = '/usr/share/blest-framework'
 core = '/usr/share/blest-framework/src/data'
 modules = core+'/modules'
@@ -157,7 +154,7 @@ Ad / değeri
 --------------------------
 '''
                         for op in module_options.keys():
-                            options += op+" : "+Fore.LIGHTGREEN_EX+str(module_options[op][1])+Fore.RESET
+                            options += op+" : "+Fore.LIGHTGREEN_EX+str(module_options[op][1])+Fore.RESET+"\n"
                         print(options)
                         # print('')
                     else:
