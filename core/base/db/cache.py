@@ -5,7 +5,7 @@ modules = core+'/modules'
 banners = core+'/core/base/banners/banner.py'
 
 class cache:
-    def generate():
+    def generate(self):
         try:
             if os.path.exists(database+'/files/cache'):
                 pass
