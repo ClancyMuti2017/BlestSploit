@@ -1,5 +1,5 @@
-rm -rf /var/log/blestsploit/blestsploit-old &>> /usr/share/blest-framework/files/cache/update.log
-mv /usr/share/blest-framework/src/data /var/log/blestsploit/blestsploit-old &>> /usr/share/blest-framework/files/cache/update.log
+rm -rf /usr/share/blest-framework/db.old &>> /usr/share/blest-framework/files/cache/update.log
+mv /usr/share/blest-framework/src/data /usr/share/blest-framework/db.old &>> /usr/share/blest-framework/files/cache/update.log
 git clone https://github.com/G00Dway/BlestSploit /usr/share/blest-framework/src/data &>> /usr/share/blest-framework/files/cache/update.log
 rm -rf /usr/bin/btconsole
 rm -rf /root/.btf
