@@ -138,7 +138,7 @@ def main():
             print(commands)
         elif btf[0] == 'clear':
             os.system('clear')
-        elif btf[0] == 'exit' or btf[0] == 'quit':
+        elif btf[0] == 'exit' or btf[0] == 'quit' or btf[0] == 'back':
             sys.exit()
         elif btf[0] == 'show':
             if len(btf) < 2:
