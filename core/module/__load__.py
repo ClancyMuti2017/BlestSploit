@@ -72,8 +72,9 @@ try:
 except:
     pass
 module_prefix = ""
+module_num = ""
 modules_data = json.loads(modules_type)
-print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{module_cmd}" Seçenekleri Yükleniyor...')
+# print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{module_cmd}" Seçenekleri Yükleniyor...')
 for i in modules_data:
     if modules_data[i]['name'] in module_cmd:
         module_prefix = modules_data[i]['prefix']
@@ -81,8 +82,9 @@ for i in modules_data:
             module_options[option] = modules_data[i]['options'][option]
         module_author = modules_data[i]['author']
         module_version = modules_data[i]['version']
+        module_num = i
         break
-print(Fore.YELLOW+'[+]'+Fore.RESET+f' Başarıyla modül "{module_cmd}" yüklendi.')
+# print(Fore.YELLOW+'[+]'+Fore.RESET+f' Başarıyla modül "{module_cmd}" yüklendi.')
 
 
 
@@ -90,12 +92,18 @@ def run():
     def ex():
         global module_prefix
         num = 0
+        md_run = "python3"
         for repl in module_options.keys():
             num += 1
             if "$"+str(num) in module_prefix:
                 module_prefix = module_prefix.replace(f"${str(num)}", module_options[repl][1])
+        tp = []
+        for i in modules_data[module_num]:
+            tp.append(i)
+        if "run" in tp:
+            md_run = modules_data[module_num]['run']
         try:
-            os.system(f"python3 {execute} {module_prefix}")
+            os.system(f"{md_run} {execute} {module_prefix}")
         except:
             pass
         print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü yürütme tamamlandı.')

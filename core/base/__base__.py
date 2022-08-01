@@ -491,7 +491,7 @@ Modül Adı
             show_banner()
         elif btf[0] == 'info':
             if len(btf) < 2:
-                print(Fore.RED+'[-]'+Fore.RESET+' Kullanım: info <module>')
+                print(Fore.RED+'[-]'+Fore.RESET+' Kullanım: info <name>')
             else:
                 try:
                     ch = ""
@@ -565,22 +565,22 @@ Modül Adı
             print(Fore.RED+'[-]'+Fore.RESET+' Bilinmeyen komut: "'+btf[0]+'"')
 
 load_modules()
-exploits = 0
-payloads = 0
-posts = 0
-usbs = 0
-for i in loaded_modules_exploits.keys():
-    exploits += 1
-for n in loaded_modules_payloads.keys():
-    payloads += 1
-for k in loaded_modules_posts.keys():
-    posts += 1
-for l in loaded_modules_usbs.keys():
-    usbs += 1
+# exploits = 0
+# payloads = 0
+# posts = 0
+# usbs = 0
+# for i in loaded_modules_exploits.keys():
+#     exploits += 1
+# for n in loaded_modules_payloads.keys():
+#     payloads += 1
+# for k in loaded_modules_posts.keys():
+#     posts += 1
+# for l in loaded_modules_usbs.keys():
+#     usbs += 1
 welcome = '''
 + -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+Fore.RESET+'''
-- -- ---={ Tüm Exploitler : '''+str(exploits)+''' Tüm Payloadlar : '''+str(payloads)+'''    
-- -- ---={ Tüm USB Exploitler : '''+str(usbs)+''' Tüm POSTlar : '''+str(posts)+'''
+- -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+''' ,   
+- -- ---={ Tüm USB Exploitler : '''+str(usbs)+''', Tüm POSTlar : '''+str(posts)+'''
 '''
 show_banner()
 main()

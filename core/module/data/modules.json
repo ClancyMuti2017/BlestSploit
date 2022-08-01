@@ -199,6 +199,7 @@
         "name": "webmin_check",
         "version": "1.1",
         "author": "Blest Boyz",
+        "run": "bash",
         "prefix": "$1",
         "options": {
             "URL": ["Sitenin bir URL'si", ""]

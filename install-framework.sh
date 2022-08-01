@@ -17,6 +17,7 @@ echo "[i] Dosyalar kopyalanıyor... (/usr/share/blest-framework)"
 cp -r logs /usr/share/blest-framework/files
 cp -r cache /usr/share/blest-framework/files
 mkdir /var/log/blestsploit
+# mkdir /usr/share/blest-framework/db.old
 mkdir /usr/var/blestsploit.old
 echo "[i] PIP (Python3) Paketleri Yükleniyor (Uzun sürebilir)..."
 bash src/install/pip-install.sh
@@ -42,6 +43,7 @@ cp -r /usr/share/blest-framework/src/data/bin/auth/btconsole /usr/bin
 chmod +x /usr/bin/btconsole
 mkdir /usr/share/blest-framework/src/modules.old
 mkdir /usr/share/blest-framework/src/modules.depr
+sleep 3
 echo "[i] BlestSploit başarıyla kuruldu! Dosyalar temizleniyor..."
 rm -rf /usr/share/blest-framework/src/data/LICENSE
 mkdir /root/.btf
