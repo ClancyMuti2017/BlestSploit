@@ -579,7 +579,7 @@ load_modules()
 #     usbs += 1
 welcome = '''
 + -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+Fore.RESET+'''
-- -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+''' ,   
+- -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+''',   
 - -- ---={ Tüm USB Exploitler : '''+str(usbs)+''', Tüm POSTlar : '''+str(posts)+'''
 '''
 show_banner()
