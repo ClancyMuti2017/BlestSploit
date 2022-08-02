@@ -66,7 +66,7 @@
         "prefix": "$1 $2 $3",
         "options": {
             "LOCALHOST": ["Yerel bir WEB/IP adresi (Dinleme IP adresi)", ""],
-            "IP_ADDR": ["Bir IP Adresi", ""],
+            "IP_ADDR": ["Hedef URL/Link/IP adresi", ""],
             "PORT": ["Bir bağlantı noktası", ""]
         }
     },
@@ -97,7 +97,7 @@
         "author": "Blest Boyz",
         "prefix": "$1:$2",
         "options": {
-            "IP_ADDR": ["Hedef URL/Link'in IP adresi", ""],
+            "IP_ADDR": ["Hedef URL/Link/IP adresi", ""],
             "PORT": ["Port adresi", "80"]
         }
     },
@@ -272,6 +272,16 @@
         "options": {
             "TARGET": ["Cihazın/Hedefin IP adresi", ""],
             "PASSWORD": ["Giriş için şifre", ""],
+            "COMMAND": ["Yürütme komutu", ""]
+        }
+    },
+    "28": {
+        "name": "rope_user_rce",
+        "version": "1.6",
+        "author": "Blest Boyz",
+        "prefix": "$1 $2",
+        "options": {
+            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
             "COMMAND": ["Yürütme komutu", ""]
         }
     }

@@ -25,5 +25,6 @@
     "ie_aurora.py": "Internet Explorer'da bir güvenlik açığını hedeflemek için bir istismar üreten bir Web sunucusu görevi, Hedef bağlanırsa, Payload gönderer ve 'calc.exe'yi açar",
     "vmware_vcenter_rce.py": "VMware vCenter Server RCE, VMware vCenter Server'da uzaktan komutu yürütür",
     "pluck_cms.py": "Pluck CMS, UPLOAD Kısıtlama Bypass nedeniyle CMS Doğrulama, RCE",
-    "algo_8028.py": "8028 RCE, 8028 Kontrol Paneli ve Uzaktan Kod Yürütme"
+    "algo_8028.py": "8028 RCE, 8028 Kontrol Paneli ve Uzaktan Kod Yürütme",
+    "rope_user_rce.py": "Sistem makinesinde giriş yapın ve bir komut yürütün (geçerli IP gerekli!)"
 }
