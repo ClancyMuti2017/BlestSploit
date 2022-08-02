@@ -1,11 +1,11 @@
 {
     "network_sniffer.py": "HTTP/HTTPS paket sniffer",
     "bluetooth_dos.py": "Bluetooth Hizmet Reddi (DOS) Modülü",
-    "online_food_rce.py": "RCE, Web Shell'i Yükleme ve Yürütme Komutu",
-    "evolution_web.py": "CMS RCE, Giriş ve Yürütme Komutu",
+    "online_food_rce.py": "RCE, Web Shell'i Yükleme ve Komutu Yürütme",
+    "evolution_web.py": "CMS RCE, Giriş ve Komutu Yürütme",
     "citadel.py": "Citadel Web Kiti, Kimlik Bilgileri Tasarım Modülü",
-    "a-rey.py": "RCE, Web Shell Yükleme ve Komut Yürütme",
-    "rental_unit.py": "RCE, Web Shell Yükleme ve Reverse TCP",
+    "a-rey.py": "RCE, Web Shell Yükleme ve Komutu Yürütme",
+    "rental_unit.py": "RCE, Web Shell Yükleme ve Reverse TCP Shell",
     "online_learning_rce.py": "RCE, Gelişmiş Web Shell Yükleme ve BruteForcer",
     "port_scanner.py": "Port tarayıcı, Gelişmiş IP bağlantı noktası tarayıcısı",
     "apache_rce.py": "Apache Web RCE, Gelişmiş Apache Güvenlik Açığı Tarayıcısı",
@@ -25,5 +25,5 @@
     "ie_aurora.py": "Internet Explorer'da bir güvenlik açığını hedeflemek için bir istismar üreten bir Web sunucusu görevi, Hedef bağlanırsa, Payload gönderer ve 'calc.exe'yi açar",
     "vmware_vcenter_rce.py": "VMware vCenter Server RCE, VMware vCenter Server'da uzaktan komutu yürütür",
     "pluck_cms.py": "Pluck CMS, UPLOAD Kısıtlama Bypass nedeniyle CMS Doğrulama, RCE",
-    "algo_8028.py": "8028 RCE, 8028 Kontrol Paneli Uzaktan Kod Yürütme"
+    "algo_8028.py": "8028 RCE, 8028 Kontrol Paneli ve Uzaktan Kod Yürütme"
 }
