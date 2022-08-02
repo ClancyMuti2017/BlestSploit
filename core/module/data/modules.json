@@ -284,5 +284,15 @@
             "TARGET": ["Cihazın/Hedefin IP adresi", ""],
             "COMMAND": ["Yürütme komutu", ""]
         }
+    },
+    "29": {
+        "name": "ftp_nologin_camera",
+        "version": "2.6.6",
+        "author": "Blest Boyz",
+        "prefix": "$1 $2",
+        "options": {
+            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "PORT": ["Port adresi", ""]
+        }
     }
 }

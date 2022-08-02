@@ -26,5 +26,6 @@
     "vmware_vcenter_rce.py": "VMware vCenter Server RCE, VMware vCenter Server'da uzaktan komutu yürütür",
     "pluck_cms.py": "Pluck CMS, UPLOAD Kısıtlama Bypass nedeniyle CMS Doğrulama, RCE",
     "algo_8028.py": "8028 RCE, 8028 Kontrol Paneli ve Uzaktan Kod Yürütme",
-    "rope_user_rce.py": "Sistem makinesinde giriş yapın ve bir komut yürütün (geçerli IP gerekli!)"
+    "rope_user_rce.py": "Sistem makinesinde giriş yapın ve bir komut yürütün (geçerli IP gerekli!)",
+    "ftp_nologin_camera.py": "FTP Medya Sunucusu Kimlik Doğrulama Bypass ve Hizmet Reddetme, Camera Roll Klasörünü İndiren RCE"
 }
