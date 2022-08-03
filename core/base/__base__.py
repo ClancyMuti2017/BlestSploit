@@ -17,7 +17,7 @@ modules = core+'/modules'
 banners = core+'/core/base/banners/banner.py'
 banners_config = core+'/config.ini'
 read_config_banners = configparser.RawConfigParser()
-read_config_banners.read()
+read_config_banners.read(banners_config)
 unofficial_banners = None
 official_banners = None
 if read_config_banners['banners']['unofficial'] == "true":
