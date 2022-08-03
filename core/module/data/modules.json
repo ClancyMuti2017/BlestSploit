@@ -294,5 +294,14 @@
             "TARGET": ["Cihazın/Hedefin IP adresi", ""],
             "PORT": ["Port adresi", ""]
         }
+    },
+    "30": {
+        "name": "autorun_meltdown",
+        "version": "0.4",
+        "author": "Blest Boyz",
+        "prefix": "$1",
+        "options": {
+            "NAME": ["Virüs dosyasına verilecek isim", ""]
+        }
     }
 }

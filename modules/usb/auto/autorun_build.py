@@ -6,7 +6,7 @@ from colorama import Fore
 if len(sys.argv) < 3:
     exit()
 
-program = sys.argv[1]
+program = sys.argv[1]+".bat"
 program_path = sys.argv[2]
 path = "/usr/share/blest-framework/devices/USB"
 

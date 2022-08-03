@@ -8,7 +8,7 @@ if len(sys.argv) < 3:
     exit()
 
 folder = sys.argv[1]
-name = sys.argv[2]
+name = sys.argv[2]+".bat"
 path = "/usr/share/blest-framework/devices/USB"
 
 

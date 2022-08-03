@@ -1,6 +1,7 @@
 from curses.ascii import isdigit
 from genericpath import isdir
 import json
+import configparser
 import os, subprocess, time, random, socket, colorama, sys, platform, shutil
 from colorama import *
 from flask import current_app
@@ -14,6 +15,19 @@ database = '/usr/share/blest-framework'
 core = '/usr/share/blest-framework/src/data'
 modules = core+'/modules'
 banners = core+'/core/base/banners/banner.py'
+banners_config = core+'/config.ini'
+read_config_banners = configparser.RawConfigParser()
+read_config_banners.read()
+unofficial_banners = None
+official_banners = None
+if read_config_banners['banners']['unofficial'] == "true":
+    unofficial_banners = True
+else:
+    unofficial_banners = False
+if read_config_banners['banners']['official'] == "true":
+    official_banners = True
+else:
+    official_banners = False
 ignore = ['.txt', '.log', '.yml', '.yaml', '.ini', '.md', '.json', '.bin']
 add = ['.py', '.pyw', '.c', '.cpp', '.so', '.pl', '.rb', '.sh']
 loaded_modules = []
@@ -582,5 +596,11 @@ welcome = '''
 - -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+''',   
 - -- ---={ Tüm USB Exploitler : '''+str(usbs)+''', Tüm POSTlar : '''+str(posts)+'''
 '''
-show_banner()
+if official_banners:
+    show_official_banner()
+else:
+    if unofficial_banners:
+        show_banner()
+    else:
+        show_banner()
 main()
