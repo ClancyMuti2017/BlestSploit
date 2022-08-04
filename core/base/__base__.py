@@ -20,6 +20,7 @@ read_config_banners = configparser.RawConfigParser()
 read_config_banners.read(banners_config)
 unofficial_banners = None
 official_banners = None
+bn = 0
 if read_config_banners['banners']['unofficial'] == "true":
     unofficial_banners = True
 else:
@@ -502,7 +503,12 @@ Modül Adı
         elif btf[0] == 'about':
             print(about)
         elif btf[0] == 'banner':
-            show_banner()
+            if bn == 1:
+                show_official_banner()
+            elif bn == 0:
+                show_banner()
+            else:
+                show_official_banner()
         elif btf[0] == 'info':
             if len(btf) < 2:
                 print(Fore.RED+'[-]'+Fore.RESET+' Kullanım: info <name>')
@@ -598,9 +604,12 @@ welcome = '''
 '''
 if official_banners:
     show_official_banner()
+    bn = 0
 else:
     if unofficial_banners:
         show_banner()
+        bn = 1
     else:
         show_banner()
+        bn = 1
 main()
