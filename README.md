@@ -12,6 +12,6 @@ BlestSploit'i sisteminizden kaldırmak için sadece çalıştırın: `bash unins
 # Credits
 Krediler gider: `Leatrix`, `Fux Walker`, `Leatrix`
 # Sorunlar, hatalar
-Herhangi bir hata bulduysanız, lütfen bunları şu adrese bildirin: <a href="https://github.com/G00Dway/USBSploit/issues">Bug Reports, Issues</a>
+Herhangi bir hata bulduysanız, lütfen bunları şu adrese bildirin: <a href="https://github.com/G00Dway/BlestSploit/issues">Bug Reports, Issues</a>
 # Warning
 BlestSploit ile yaptığınız işlemlerden sorumlu DEĞİLİZ, lütfen bu aracı yalnızca eğitim amaçlı kimi kullanın!
