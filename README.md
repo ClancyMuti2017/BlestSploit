@@ -3,9 +3,9 @@ Blest Boyz Ekibinden Doğrulanmış ve Yayınlanmış Modüller, Exploits, Paylo
 # Kurulum / Kaldırma
 ### Kurulum
 Reponu klonlamak için: `git clone https://github.com/G00Dway/BlestSploit`
-
+>
 BlestSploit'i kurmak için sadece çalıştırın: `bash install-framework.sh`
-
+>
 BlestSploit'i çalıştırmak için: `sudo btconsole` veya `btconsole`
 ### Kaldırma
 BlestSploit'i sisteminizden kaldırmak için sadece çalıştırın: `bash uninstall-framework.sh`
