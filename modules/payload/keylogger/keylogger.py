@@ -4,8 +4,6 @@ import json
 import threading
 import sys
 from colorama import Fore 
-if len(sys.argv) < 4:
-    exit()
 text = ""
 
 ip_address = "IP ADDRESS TO LISTEN ON"
