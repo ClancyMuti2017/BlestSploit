@@ -503,12 +503,12 @@ Modül Adı
         elif btf[0] == 'about':
             print(about)
         elif btf[0] == 'banner':
-            if bn == 1:
+            if bn == 0:
                 show_official_banner()
-            elif bn == 0:
+            elif bn == 1:
                 show_banner()
             else:
-                show_official_banner()
+                show_banner()
         elif btf[0] == 'info':
             if len(btf) < 2:
                 print(Fore.RED+'[-]'+Fore.RESET+' Kullanım: info <name>')
