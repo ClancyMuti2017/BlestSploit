@@ -78,11 +78,14 @@ modules_data = json.loads(modules_type)
 for i in modules_data:
     if modules_data[i]['name'] in module_cmd:
         module_prefix = modules_data[i]['prefix']
-        for option in modules_data[i]['options']:
-            module_options[option] = modules_data[i]['options'][option]
-        module_author = modules_data[i]['author']
-        module_version = modules_data[i]['version']
-        module_num = i
+        if module_type.lower() == "payload":
+            pass
+        else:
+            for option in modules_data[i]['options']:
+                module_options[option] = modules_data[i]['options'][option]
+            module_author = modules_data[i]['author']
+            module_version = modules_data[i]['version']
+            module_num = i
         break
 # print(Fore.YELLOW+'[+]'+Fore.RESET+f' Başarıyla modül "{module_cmd}" yüklendi.')
 
