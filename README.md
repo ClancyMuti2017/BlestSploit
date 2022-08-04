@@ -2,10 +2,8 @@
 Blest Boyz Ekibinden Doğrulanmış ve Yayınlanmış Modüller, Exploits, Payload'larla BlestSploit Framework!
 # Kurulum / Kaldırma
 ### Kurulum
-Reponu klonlamak için: `git clone https://github.com/G00Dway/BlestSploit`
->
-BlestSploit'i kurmak için sadece çalıştırın: `bash install-framework.sh`
->
+Reponu klonlamak için: `git clone https://github.com/G00Dway/BlestSploit`\n
+BlestSploit'i kurmak için sadece çalıştırın: `bash install-framework.sh`\n
 BlestSploit'i çalıştırmak için: `sudo btconsole` veya `btconsole`
 ### Kaldırma
 BlestSploit'i sisteminizden kaldırmak için sadece çalıştırın: `bash uninstall-framework.sh`
