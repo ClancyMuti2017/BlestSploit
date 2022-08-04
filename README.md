@@ -12,7 +12,7 @@ BlestSploit'i sisteminizden kaldırmak için sadece çalıştırın: `bash unins
 # ScreenShotlar
 ![image](https://user-images.githubusercontent.com/80381071/182795041-580c18f2-f84e-486d-9764-f35093b7ea13.png)
 # Credits
-Krediler gider: `Leatrix`, `Fux Walker`, `Leatrix`
+Krediler gider: `Leatrix`, `Fux Walker`, `Kenn`
 # Sorunlar, hatalar
 Herhangi bir hata bulduysanız, lütfen bunları şu adrese bildirin: <a href="https://github.com/G00Dway/BlestSploit/issues">Bug Reports, Issues</a>
 # Uyarı
