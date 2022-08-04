@@ -83,9 +83,9 @@ for i in modules_data:
         else:
             for option in modules_data[i]['options']:
                 module_options[option] = modules_data[i]['options'][option]
-            module_author = modules_data[i]['author']
-            module_version = modules_data[i]['version']
-            module_num = i
+        module_author = modules_data[i]['author']
+        module_version = modules_data[i]['version']
+        module_num = i
         break
 # print(Fore.YELLOW+'[+]'+Fore.RESET+f' Başarıyla modül "{module_cmd}" yüklendi.')
 
