@@ -10,9 +10,9 @@
             "language": "python",
             "version": "1.0",
             "lookup_name": "Win64-Keylogger",
-            "url": "https://github.com/G00Dway/BlestSploit/releases/download/keylogger-1/keylogger-v.zip",
+            "url": "https://github.com/G00Dway/BlestSploit-archive/releases/download/keylogger-1/keylogger-v.zip",
             "download_manager": "wget",
-            "prefix": "-P",
+            "prefix": "-q -P",
             "save_path": "/usr/share/blest-framework/files/cache",
             "pip_depends": ["pynput", "pyinstaller"]
         }

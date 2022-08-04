@@ -490,10 +490,7 @@ Modül Adı
                                     else:
                                         os.system(f"python3 {core}/core/module/__load__.py {load} {usb_device} {core}/modules/{cr} {cr}")
                             else:
-                                if load == "payload":
-                                    print(Fore.RED+'[-]'+Fore.RESET+' Payloadlar için lütfen işleyici (Handler) modülünü kullanın!')
-                                else:
-                                    os.system(f"python3 {core}/core/module/__load__.py {load} false {core}/modules/{cr} {cr}")
+                                os.system(f"python3 {core}/core/module/__load__.py {load} false {core}/modules/{cr} {cr}")
                         else:
                             pass
                     else:

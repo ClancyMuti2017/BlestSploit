@@ -98,15 +98,32 @@ def run():
             if "$"+str(num) in module_prefix:
                 module_prefix = module_prefix.replace(f"${str(num)}", module_options[repl][1])
         tp = []
+        lg = ""
         for i in modules_data[module_num]:
             tp.append(i)
+        data = ""
         if "run" in tp:
             md_run = modules_data[module_num]['run']
-        try:
-            os.system(f"{md_run} {execute} {module_prefix}")
-        except:
-            pass
-        print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü yürütme tamamlandı.')
+        if module_type.lower() == "payload":
+            name = modules_data[module_num]['name']
+            print(Fore.BLUE+'[i]'+Fore.RESET+' "/root/.btf" adresine Payload yazma...')
+            time.sleep(2)
+            if "type" in tp:
+                lg = modules_data[module_num]['type']
+            try:
+                with open(f"/root/.btf/{name}{lg}", "w") as ft:
+                    with open(module_run+lg, "r") as t:
+                        data = t.read()
+                    ft.write(data)
+            except:
+                pass
+            print(Fore.BLUE+'[i]'+Fore.RESET+f' Payload dosya olarak yazıltı: "/root/.btf/{name}{lg}", Lütfen Payload\'ı en sevdiğiniz editörle açın ve düzenleyin.')
+        else:
+            try:
+                os.system(f"{md_run} {execute} {module_prefix}")
+            except:
+                pass
+            print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü yürütme tamamlandı.')
     execute = ""
     not_sp = ""
     found = False
@@ -131,6 +148,8 @@ def run():
         print(Fore.RED+'[-]'+Fore.RESET+f' Gerekli seçenekler ayarlanmamış: {str(not_sp).lstrip()}')
 
 
+if module_type.lower() == "payload":
+    print(Fore.BLUE+'[i]'+Fore.RESET+f' Yükleme işleyicisi (Handler) Payload "{module_cmd}" İcin yükleniyor...')
 def main():
     while True:
         try:
@@ -154,12 +173,15 @@ def main():
             else:
                 try:
                     if btf[1] == '-o':
-                        options = f'''
+                        if module_type.lower() == "payload":
+                            print(Fore.BLUE+'[i]'+Fore.RESET+' Payloadlarin seçenekleri yoktur.')
+                        else:
+                            options = f'''
 Modül ({Fore.RED}{module_cmd}{Fore.RESET}) seçenekleri
 ==========================================================================
                         
 Ad / değeri
---------------------------
+----------------------
 '''
                         for op in module_options.keys():
                             options += op+" : "+Fore.LIGHTGREEN_EX+str(module_options[op][1])+Fore.RESET+"\n"

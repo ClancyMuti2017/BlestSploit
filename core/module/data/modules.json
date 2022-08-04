@@ -303,5 +303,12 @@
         "options": {
             "NAME": ["Virüs dosyasına verilecek isim", ""]
         }
+    },
+    "31": {
+        "name": "keylogger",
+        "type": ".py",
+        "version": "0.8",
+        "author": "Blest Boyz",
+        "prefix": "No prefix"
     }
 }
