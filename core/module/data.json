@@ -29,6 +29,6 @@
     "rope_user_rce.py": "Sistem makinesinde giriş yapın ve bir komut yürütün (geçerli IP gerekli!)",
     "ftp_nologin_camera.py": "FTP Medya Sunucusu Kimlik Doğrulama Bypass ve Hizmet Reddetme, Camera Roll Klasörünü İndiren RCE",
     "autorun_meltdown.py": "Bilgisayarı eriten ve WiFi sürücülerini kaldıran bir USB virus amaçlı yazılım, sistem ikili dosyalarının üzerine yazılıyor",
-    "keylogger.py": "(Payload) Tüm klaivatura basımlarını belirtilen ve sunucuya gönderen güçlü keylogger",
+    "keylogger.py": "(Payload) Tüm klaivatura basımlarını belirtilen sunucuya gönderen güçlü keylogger",
     "sap_ism.py": "SAP Information RCE, SAP Hedefinde bir Web Shell'i çalıştırır"
 }
