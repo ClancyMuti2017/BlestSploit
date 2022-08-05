@@ -310,5 +310,16 @@
         "version": "0.8",
         "author": "Blest Boyz",
         "prefix": "No prefix"
+    },
+    "32": {
+        "name": "sap_ism",
+        "version": "0.1.1",
+        "author": "Blest Boyz",
+        "prefix": "-t $1 -u $2 -p $3",
+        "options": {
+            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "LOGIN": ["Giriş için giriş adı", "admin"],
+            "PASSWORD": ["Giriş için şifre", "admin"]
+        }
     }
 }

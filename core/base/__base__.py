@@ -1,5 +1,5 @@
-from curses.ascii import isdigit
-from genericpath import isdir
+# from curses.ascii import isdigit
+# from genericpath import isdir
 import json
 import configparser
 import os, subprocess, time, random, socket, colorama, sys, platform, shutil
@@ -60,14 +60,13 @@ check_module_type = [
     # 'usbs',
     'payload',
     # 'payloads',
-    'post',
+    'post'
     # 'posts'
-    'normal'
 ]
 Banner = banner()
 Official_Banner = banner_official()
 normals = 0
-code = '''
+usb_checker_code = '''
 REMOVABLE_DRIVES=""
 for _device in /sys/block/*/device; do
     if echo $(readlink -f "$_device")|egrep -q "usb"; then
@@ -348,11 +347,13 @@ def main():
                 print(show_commands)
             else:
                 try:
-                    expl = '''
-Modül Adı
+                    see = ""
+                    expl = f'''
+{see}
 -----------'''
                     if btf[1] == '-e':
                         num = 0
+                        see = "Exploitler"
                         if loaded_modules_exploits == {} or loaded_modules_exploits == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Exploitler yok.')
                         else:
@@ -362,6 +363,7 @@ Modül Adı
                             print(f"\n{expl}\n")
                     elif btf[1] == '-p':
                         num = 0
+                        see = "Payloadlar"
                         if loaded_modules_payloads == {} or loaded_modules_payloads == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Payloadlar yok.')
                         else:
@@ -371,6 +373,7 @@ Modül Adı
                             print(f"\n{expl}\n")
                     elif btf[1] == '-ps':
                         num = 0
+                        see = "POSTlar"
                         if loaded_modules_posts == {} or loaded_modules_posts == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' POSTlar yok.')
                         else:
@@ -380,6 +383,7 @@ Modül Adı
                             print(f"\n{expl}\n")
                     elif btf[1] == '-u':
                         num = 0
+                        see = "USB Exploitler"
                         if loaded_modules_usbs == {} or loaded_modules_usbs == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' USB Exploitler yok.')
                         else:
@@ -389,6 +393,7 @@ Modül Adı
                             print(f"\n{expl}\n")
                     elif btf[1] == '-a':
                         num = 0
+                        see = "Tüm Modüller"
                         if loaded_modules_all == {} or loaded_modules_all == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Modüllar yok!.')
                         else:
@@ -573,7 +578,7 @@ Modül Adı
                 except:
                     pass
         elif btf[0] == 'marketplace':
-            print(Fore.BLUE+'[i]'+Fore.RESET+' MarketPlace yükleniyor...')
+            # print(Fore.BLUE+'[i]'+Fore.RESET+' MarketPlace yükleniyor...')
             print(Fore.BLUE+'[i]'+Fore.RESET+' MarketPlace şu anda mevcut değil, ancak yakında açilacak!')
             # os.system(f"python3 {core}/core/marketplace/__base__.py")
         elif btf[0] == 'update':
