@@ -349,7 +349,7 @@ def main():
                 try:
                     see = ""
                     expl = f'''
-{see}
+Modüller
 -----------'''
                     if btf[1] == '-e':
                         num = 0
