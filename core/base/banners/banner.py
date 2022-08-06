@@ -200,7 +200,7 @@ rce_windows_exploit.py
                 -   TTM|     >..                   \HMMMMH
                :     |MM\,#-""$~b\.                `MMMMMM+
               .       ``"H&#        -               &MMMMMM|
-              :            *\v,#MHddc.              `9MMMMMb
+              :            *\\v,#MHddc.              `9MMMMMb
               .               MMMMMMMM##\             `"":HM
               -          .  .HMMMMMMMMMMRo_.              |M
               :             |MMMMMMMMMMMMMMMM#\           :M
@@ -263,29 +263,29 @@ rce_windows_exploit.py
      _____          __             __    ____  ____    ____     __                   _              
     / ___/__  ___  / /__ ____  ___/ /   / __ \/ __/   / __/__  / /____ _______  ____(_)__ ___       
    / /__/ _ \/ _ \/ / _ `/ _ \/ _  /   / /_/ /\ \    / _// _ \/ __/ -_) __/ _ \/ __/ (_-</ -_)      
-   \___/\___/ .__/_/\_,_/_//_/\_,_/    \____/___/   /___/_//_/\__/\__/_/ / .__/_/ /_/___/\__/  {Fore.RESET}     
-           /_/                                                          /_/                         
+   \___/\___/ .__/_/\_,_/_//_/\_,_/    \____/___/   /___/_//_/\__/\__/_/ / .__/_/ /_/___/\__/     
+           /_/                                                          /_/                  {Fore.RESET}    
 '''+Fore.RESET, f'''
-    \           {Fore.RED} _    _            _ {Fore.RESET}   
-     \          {Fore.RED}| |  | |          | |{Fore.RESET}   
+    \\          {Fore.RED} _    _            _ {Fore.RESET}   
+     \\         {Fore.RED}| |  | |          | |{Fore.RESET}   
       \\        {Fore.RED}| |__| | __ _  ___| | __{Fore.RESET}
        \\       {Fore.RED}|  __  |/ _` |/ __| |/ /{Fore.RESET}
-        >\/7    {Fore.RED}| |  | | (_| | (__|   < {Fore.RESET}
-    _.-(6'  \   {Fore.RED}|_|  |_|\__,_|\___|_|\_\{Fore.RESET}
-   (=___._/` \        {Fore.RED} _   _          {Fore.RESET}
-        )  \ |        {Fore.RED}| | | |         {Fore.RESET}
+        >\\/7   {Fore.RED}| |  | | (_| | (__|   < {Fore.RESET}
+    _.-(6'  \\  {Fore.RED}|_|  |_|\__,_|\___|_|\_\{Fore.RESET}
+   (=___._/` \\       {Fore.RED} _   _          {Fore.RESET}
+        )  \\|        {Fore.RED}| | | |         {Fore.RESET}
        /   / |        {Fore.RED}| |_| |__   ___ {Fore.RESET}
       /    > /        {Fore.RED}| __| '_ \ / _ \{Fore.RESET}
-     j    < _\        {Fore.RED}| |_| | | |  __/{Fore.RESET}
+     j    < _\\       {Fore.RED}| |_| | | |  __/{Fore.RESET}
  _.-' :      ``.      {Fore.RED} \__|_| |_|\___|{Fore.RESET}
- \ r=._\        `.{Fore.RESET}
-<`\\_  \         .`-.         {Fore.RED} _____  _                  _   _ {Fore.RESET}
- \ r-7  `-. ._  ' .  `\       {Fore.RED}|  __ \| |                | | | |{Fore.RESET}
-  \`,      `-.`7  7)   )      {Fore.RED}| |__) | | __ _ _ __   ___| |_| |{Fore.RESET}
-   \/         \|  \'  / `-._  {Fore.RED}|  ___/| |/ _` | '_ \ / _ \ __| |{Fore.RESET}
+ \\r=._\\       `.{Fore.RESET}
+<`\\_  \\        .`-.         {Fore.RED} _____  _                  _   _ {Fore.RESET}
+ \\r-7  `-. ._  ' .  `\\      {Fore.RED}|  __ \| |                | | | |{Fore.RESET}
+  \\`,     `-.`7  7)   )      {Fore.RED}| |__) | | __ _ _ __   ___| |_| |{Fore.RESET}
+   \\/        \\| \'  / `-._  {Fore.RED}|  ___/| |/ _` | '_ \ / _ \ __| |{Fore.RESET}
               ||    .'        {Fore.RED}| |    | | (_| | | | |  __/ |_|_|{Fore.RESET}
                \\  (          {Fore.RED}|_|    |_|\__,_|_| |_|\___|\__(_){Fore.RESET}
-                >\  >
+                >\\ >
             ,.-' >.'
            <.'_.''
              <'{Fore.RESET}
