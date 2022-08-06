@@ -11,7 +11,7 @@ if len(sys.argv) != 2:
 
 if len(sys.argv[1]) % 4 != 0:
     # print len(sys.argv[1])
-    print(Fore.RED+"[-]"+Fore.RESET+" Metin 4'ün katı olmalıdır.")
+    print(Fore.RED+"[-]"+Fore.RESET+" Metnin (kodun) 4 katı olmalıdır.")
     sys.exit()
 print(Fore.BLUE+'[i]'+Fore.RESET+' Shellcode oluşturma...')
 chunks = map(lambda x: sys.argv[1][x:x+4], range(0, len(sys.argv[1]), 4))[::-1]
