@@ -296,7 +296,7 @@
         "version": "0.3",
         "prefix": "$1",
         "options": {
-            "TEXT": ["Code to generate (text), (Metnin 4 katı olmalıdır.)", ""]
+            "TEXT": ["Üretilecek Kod (Metin), (Metnin 4 katı olmalıdır.)", ""]
         }
     },
     "34": {

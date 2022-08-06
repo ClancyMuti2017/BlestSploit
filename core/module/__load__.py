@@ -85,7 +85,6 @@ for i in modules_data:
             if "options" in op:
                 for option in modules_data[i]['options']:
                     module_options[option] = modules_data[i]['options'][option]
-                break
         else:
             for option in modules_data[i]['options']:
                 module_options[option] = modules_data[i]['options'][option]
