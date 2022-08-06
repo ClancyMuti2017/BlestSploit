@@ -101,10 +101,11 @@ def run():
         global module_prefix
         num = 0
         md_run = "python3"
+        module_prefix_run = ""
         for repl in module_options.keys():
             num += 1
             if "$"+str(num) in module_prefix:
-                module_prefix = module_prefix.replace(f"${str(num)}", module_options[repl][1])
+                module_prefix_run = module_prefix.replace(f"${str(num)}", module_options[repl][1])
         tp = []
         lg = ""
         for i in modules_data[module_num]:
@@ -129,12 +130,12 @@ def run():
                 print(Fore.BLUE+'[i]'+Fore.RESET+f' Payload dosya olarak yazıltı: "/root/.btf/{name}{lg}", Lütfen Payload\'ı en sevdiğiniz editörle açın ve düzenleyin.')
             else:
                 try:
-                    os.system(f"{md_run} {execute} {module_prefix}")
+                    os.system(f"{md_run} {execute} {module_prefix_run}")
                 except:
                     pass
         else:
             try:
-                os.system(f"{md_run} {execute} {module_prefix}")
+                os.system(f"{md_run} {execute} {module_prefix_run}")
             except:
                 pass
         print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü yürütme tamamlandı.')
