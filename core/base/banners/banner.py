@@ -190,7 +190,7 @@ rce_windows_exploit.py
      _      _      _     {Fore.RESET} USB{Fore.YELLOW}       _      _      _
    __(.)< __(.)> __(.)=  {Fore.RESET} Rubber{Fore.YELLOW}   >(.)__ <(.)__ =(.)__
    \___)  \___)  \___)   {Fore.RESET} Ducky!{Fore.YELLOW}    (___/  (___/  (___/{Fore.RESET}{Style.RESET_ALL} 
-'''+Fore.RESET, f'''
+'''+Fore.RESET, fr'''
                             _ood>H&H&Z?#M#b-\.
                         .\HMMMMMR?`\M6b."`' ''``v.
                      .. .MMMMMMMMMMHMMM#&.      ``~o.
@@ -200,7 +200,7 @@ rce_windows_exploit.py
                 -   TTM|     >..                   \HMMMMH
                :     |MM\,#-""$~b\.                `MMMMMM+
               .       ``"H&#        -               &MMMMMM|
-              :            *\\v,#MHddc.              `9MMMMMb
+              :            *\v,#MHddc.              `9MMMMMb
               .               MMMMMMMM##\             `"":HM
               -          .  .HMMMMMMMMMMRo_.              |M
               :             |MMMMMMMMMMMMMMMM#\           :M
