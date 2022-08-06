@@ -75,15 +75,20 @@ module_prefix = ""
 module_num = ""
 modules_data = json.loads(modules_type)
 # print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{module_cmd}" Seçenekleri Yükleniyor...')
+op = False
 for i in modules_data:
     if modules_data[i]['name'] in module_cmd:
         module_prefix = modules_data[i]['prefix']
         if module_type.lower() == "payload":
-            pass
+            for c in modules_data[i]:
+                if c == "options":
+                    for option in modules_data[i]['options']:
+                        module_options[option] = modules_data[i]['options'][option]
+                    break
         else:
             for option in modules_data[i]['options']:
                 module_options[option] = modules_data[i]['options'][option]
-        module_author = modules_data[i]['author']
+        # module_author = modules_data[i]['author']
         module_version = modules_data[i]['version']
         module_num = i
         break
@@ -109,24 +114,30 @@ def run():
             md_run = modules_data[module_num]['run']
         if module_type.lower() == "payload":
             name = modules_data[module_num]['name']
-            print(Fore.BLUE+'[i]'+Fore.RESET+' "/root/.btf" adresine Payload yazma...')
-            time.sleep(2)
-            if "type" in tp:
-                lg = modules_data[module_num]['type']
-            try:
-                with open(f"/root/.btf/{name}{lg}", "w") as ft:
-                    with open(module_run+lg, "r") as t:
-                        data = t.read()
-                    ft.write(data)
-            except:
-                pass
-            print(Fore.BLUE+'[i]'+Fore.RESET+f' Payload dosya olarak yazıltı: "/root/.btf/{name}{lg}", Lütfen Payload\'ı en sevdiğiniz editörle açın ve düzenleyin.')
+            if module_options == {} or module_options == {'\n'}:
+                print(Fore.BLUE+'[i]'+Fore.RESET+' "/root/.btf" adresine Payload yazma...')
+                time.sleep(2)
+                if "type" in tp:
+                    lg = modules_data[module_num]['type']
+                try:
+                    with open(f"/root/.btf/{name}{lg}", "w") as ft:
+                        with open(module_run+lg, "r") as t:
+                            data = t.read()
+                        ft.write(data)
+                except:
+                    pass
+                print(Fore.BLUE+'[i]'+Fore.RESET+f' Payload dosya olarak yazıltı: "/root/.btf/{name}{lg}", Lütfen Payload\'ı en sevdiğiniz editörle açın ve düzenleyin.')
+            else:
+                try:
+                    os.system(f"{md_run} {execute} {module_prefix}")
+                except:
+                    pass
         else:
             try:
                 os.system(f"{md_run} {execute} {module_prefix}")
             except:
                 pass
-            print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü yürütme tamamlandı.')
+        print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü yürütme tamamlandı.')
     execute = ""
     not_sp = ""
     found = False
@@ -176,8 +187,8 @@ def main():
             else:
                 try:
                     if btf[1] == '-o':
-                        if module_type.lower() == "payload":
-                            print(Fore.BLUE+'[i]'+Fore.RESET+' Payloadlarin seçenekleri yoktur.')
+                        if module_options == {} or module_options == {'\n'}:
+                            print(Fore.BLUE+'[i]'+Fore.RESET+' Bu Payload\'ın seçeneği yoktur.')
                         else:
                             options = f'''
 Modül ({Fore.RED}{module_cmd}{Fore.RESET}) seçenekleri
@@ -215,7 +226,7 @@ Ad / değeri
                         print(Fore.BLUE+'[i]'+Fore.RESET+f' {btf[1].upper()}: {Fore.LIGHTGREEN_EX}{module_options[btf[1].upper()][0]}{Fore.RESET}')
                         print('---------------------------------------------------------------------------------------------------------------')
                         print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül versiyonu: {Fore.LIGHTGREEN_EX}{module_version}{Fore.RESET}')
-                        print(Fore.BLUE+'[i]'+Fore.RESET+f' Modülü Yazan(lar): {Fore.LIGHTGREEN_EX}{module_author}{Fore.RESET}')
+                        # print(Fore.BLUE+'[i]'+Fore.RESET+f' Modülü Yazan(lar): {Fore.LIGHTGREEN_EX}{module_author}{Fore.RESET}')
                     else:
                         print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz seçenek: "'+btf[1].upper()+'"')
                 except:

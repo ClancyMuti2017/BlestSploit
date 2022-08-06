@@ -1,10 +1,14 @@
 # from curses.ascii import isdigit
 # from genericpath import isdir
 import json
+import importlib
+def load_module_data(name):
+    load_module = importlib.import_module(name)
+    return load_module
 import configparser
 import os, subprocess, time, random, socket, colorama, sys, platform, shutil
 from colorama import *
-from flask import current_app
+# from flask import current_app
 from banners.banner import banner
 from banners.official import banner_official
 from db.cache import cache
