@@ -102,10 +102,11 @@ def run():
         num = 0
         md_run = "python3"
         module_prefix_run = ""
+        module_prefix_run = module_prefix
         for repl in module_options.keys():
             num += 1
-            if "$"+str(num) in module_prefix:
-                module_prefix_run = module_prefix.replace(f"${str(num)}", module_options[repl][1])
+            if "$"+str(num) in module_prefix_run:
+                module_prefix_run = module_prefix_run.replace(f"${str(num)}", module_options[repl][1])
         tp = []
         lg = ""
         for i in modules_data[module_num]:
