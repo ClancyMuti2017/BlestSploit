@@ -75,16 +75,17 @@ module_prefix = ""
 module_num = ""
 modules_data = json.loads(modules_type)
 # print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{module_cmd}" Seçenekleri Yükleniyor...')
-op = False
+op = []
 for i in modules_data:
     if modules_data[i]['name'] in module_cmd:
         module_prefix = modules_data[i]['prefix']
+        for c in modules_data[i]:
+            op.append(c)
         if module_type.lower() == "payload":
-            for c in modules_data[i]:
-                if c == "options":
-                    for option in modules_data[i]['options']:
-                        module_options[option] = modules_data[i]['options'][option]
-                    break
+            if "options" in op:
+                for option in modules_data[i]['options']:
+                    module_options[option] = modules_data[i]['options'][option]
+                break
         else:
             for option in modules_data[i]['options']:
                 module_options[option] = modules_data[i]['options'][option]
@@ -187,9 +188,7 @@ def main():
             else:
                 try:
                     if btf[1] == '-o':
-                        if module_options == {} or module_options == {'\n'}:
-                            print(Fore.BLUE+'[i]'+Fore.RESET+' Bu Payload\'ın seçeneği yoktur.')
-                        else:
+                        def show_options():
                             options = f'''
 Modül ({Fore.RED}{module_cmd}{Fore.RESET}) seçenekleri
 ==========================================================================
@@ -197,10 +196,16 @@ Modül ({Fore.RED}{module_cmd}{Fore.RESET}) seçenekleri
 Ad / değeri
 ----------------------
 '''
-                        for op in module_options.keys():
-                            options += op+" : "+Fore.LIGHTGREEN_EX+str(module_options[op][1])+Fore.RESET+"\n"
-                        print(options)
-                        # print('')
+                            for op in module_options.keys():
+                                options += op+" : "+Fore.LIGHTGREEN_EX+str(module_options[op][1])+Fore.RESET+"\n"
+                            print(options)
+                        if module_type.lower() == "payload":
+                            if module_options == {} or module_options == {'\n'}:
+                                print(Fore.BLUE+'[i]'+Fore.RESET+' Bu Payload\'ın seçeneği yoktur.')
+                            else:
+                                show_options()
+                        else:
+                            show_options()
                     else:
                         print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz komut: "'+btf[1]+'"')
                 except:

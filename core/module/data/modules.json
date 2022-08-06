@@ -296,7 +296,7 @@
         "version": "0.3",
         "prefix": "$1",
         "options": {
-            "TEXT": ["Code to generate (text), (Metnin 4 katı olmalıdır.)"]
+            "TEXT": ["Code to generate (text), (Metnin 4 katı olmalıdır.)", ""]
         }
     },
     "34": {
@@ -305,7 +305,7 @@
         "prefix": "$1 $2",
         "options": {
             "TARGET": ["Cihazın/Hedefin IP adresi", ""],
-            "PORT": ["Hedef/Server Port adresi"]
+            "PORT": ["Hedef/Server Port adresi", ""]
         }
     }
 }
