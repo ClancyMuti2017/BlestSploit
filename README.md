@@ -1,5 +1,5 @@
 # BlestSploit
-Blest Boyz Ekibinden Doğrulanmış ve Yayınlanmış Modüller, Exploits, Payload'larla BlestSploit Framework!
+BlestSploit Framework, Blest Boyz ekibinden Exploits, Payloads, Posts ve Daha Fazlası gibi yayınlanmış modüllerle bir framework!
 # Kurulum / Kaldırma
 ### Kurulum
 ```
