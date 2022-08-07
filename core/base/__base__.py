@@ -140,7 +140,6 @@ Ana Menü Komutları
     about                           Geliştiriciler Hakkında Göster, ve s.
     banner                          Banner'ı Göster
     info <name>                     Belirtilen modül hakkında bazı bilgileri gösterin
-    edit <name>                     Belirtilen modülü düzenleyin (Shellcode kodunu veya RCE kodunu değiştirmek istiyorsanız yararlıdır)
     usb <dev>                       USB modülleri için belirli bir USB cihazı "/dev/sdaX" kullanın (cihazları/sürücüleri görmek için "usb" yazın)
     marketplace                     Global Modüller Marketplace'i (Modül İndir/Yükle)
 
@@ -347,22 +346,6 @@ def main():
             sys.exit()
         elif btf[0] == 'back':
             pass
-	elif btf[0] == 'edit':
-	    if len(btf) < 2:
-                print(Fore.RED+'[-]'+Fore.RESET+' Kullanım: edit <name>')
-		else:
-			try:
-				if btf[1] in loaded_modules:
-					for j in add:
-						if os.path.exists(modules+"/"+btf[1]+j):					
-							os.system(f'nano {modules}/{btf[1]}{j}')
-							break
-						else:
-							print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[1]+'"')
-				else:
-					print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+btf[1]+'"')
-			except:
-				pass
         elif btf[0] == 'show':
             if len(btf) < 2:
                 print(show_commands)
