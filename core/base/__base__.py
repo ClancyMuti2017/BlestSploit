@@ -18,6 +18,7 @@ Cache.generate()
 database = '/usr/share/blest-framework'
 core = '/usr/share/blest-framework/src/data'
 modules = core+'/modules'
+devices = []
 banners = core+'/core/base/banners/banner.py'
 banners_config = core+'/config.ini'
 read_config_banners = configparser.RawConfigParser()
@@ -43,6 +44,7 @@ loaded_modules_payloads = {}
 loaded_modules_posts = {}
 loaded_modules_usbs = {}
 unknown_modules = []
+execute = ""
 version = ""
 try:
     with open(core+'/VERSION', 'r') as v:
@@ -328,7 +330,7 @@ def load_modules():
     desc_module()
 
 def main():
-    global usb_device
+    global usb_device, execute
     while True:
         try:
             btf = input('\033[4mbtf\033[0m > ').strip(" ")
@@ -574,7 +576,7 @@ Modüller
                 print(Fore.BLUE+'[i]'+Fore.RESET+' Bağlı cihazlar listeleniyor...')
                 execute = subprocess.getoutput(f"bash {core}/src/usb.sh")
                 execute = execute.split()
-                devices = []
+                devices.clear()
                 time.sleep(1)
                 if execute == [] or execute == ['\n'] or execute == {} or execute == ['']:
                     print(Fore.RED+'[-]'+Fore.RESET+' USB cihazları bulunamadı!')
