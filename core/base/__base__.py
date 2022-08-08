@@ -355,7 +355,7 @@ def main():
                     if btf[1] in loaded_modules:
                         try:
                             for g in add:
-                                if os.path.exists(btf[1]+g):
+                                if os.path.exists(modules+"/"+btf[1]+g):
                                     os.system(f"nano {modules}/{btf[1]}{g}")
                                     break
                         except:
