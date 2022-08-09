@@ -25,6 +25,7 @@ read_config_banners = configparser.RawConfigParser()
 read_config_banners.read(banners_config)
 unofficial_banners = None
 official_banners = None
+devices = []
 bn = 0
 if read_config_banners['banners']['unofficial'] == "true":
     unofficial_banners = True
@@ -589,7 +590,7 @@ Modüller
                 print(Fore.RED+'[-]'+Fore.RESET+' Kullanım: usb </dev/sdaX>')
             else:
                 try:
-                    devices = []
+                    # devices = []
                     if btf[1] in devices:
                         usb_device = btf[1]
                         print(Fore.BLUE+'[i]'+Fore.RESET+f' USB cihazı başarıyla ayarlandı ==> "{usb_device}"')
