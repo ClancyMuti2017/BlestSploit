@@ -331,7 +331,7 @@ def load_modules():
     desc_module()
 
 def main():
-    global usb_device, execute
+    global usb_device, execute, devices
     while True:
         try:
             btf = input('\033[4mbtf\033[0m > ').strip(" ")
