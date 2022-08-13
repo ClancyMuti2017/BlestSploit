@@ -15,5 +15,20 @@ BlestSploit'i sisteminizden kaldırmak için sadece çalıştırın: `bash unins
 Krediler gider: `Leatrix`, `Fux Walker`, `Kenn`
 # Sorunlar, hatalar
 Herhangi bir hata bulduysanız, lütfen bunları şu adrese bildirin: <a href="https://github.com/G00Dway/BlestSploit/issues">Bug Reports, Issues</a>
+# Kendi modülü nasıl eklenir?
+* İlk olarak, "/usr/share/blest-framework/src/data/core/module/data/" adresine gidin ve "modules.json" adlı bir dosya göreceksiniz, onu favori düzenleyicinizle açın
+ardından belirtilen kodu dosyanın sonuna ekleyin
+```
+"bir say":{
+            "author": "Ad",
+            "name": "modulun dosya adı ama .py, .sh, ve.s olmasın",
+            "prefix": "modulun prefixleri, mesalan: -t $1 -p $2",
+            "options": { # modulun ayarları
+                  "AYAR": ["AYAR HAKKINDA", ""],
+                  "AYAR2": ["AYAR HAKKINDA", ""] # sonsuz ayar koyabilirsiniz
+            }
+ }
+ ```
+ * ve modülünüzü "/usr/share/best-framework/src/data/modules/exploits" dizinine eklemeyi unutmayın!
 # Uyarı
 BlestSploit ile yaptığınız işlemlerden sorumlu DEĞİLİZ, lütfen bu aracı yalnızca eğitim amaçlı kimi kullanın!
