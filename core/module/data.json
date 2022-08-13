@@ -32,5 +32,6 @@
     "keylogger.py": "Tüm klaivatura basımlarını belirtilen sunucuya gönderen güçlü keylogger",
     "sap_ism.py": "SAP Information RCE, SAP Hedefinde bir Web Shell'i çalıştırır",
     "push_gen.py": "Shellcode yazma aracı. Yıgmak için üzerine (push) bir dize verir ve karşılık gelen Shellcode (push) talimatlarını oluşturur.",
-    "freefloat_ftp.py": "Freefloat FTP Sunucu Server'i Taşma Güvenlik Açığı, RCE"
+    "freefloat_ftp.py": "Freefloat FTP Sunucu Server'i Taşma Güvenlik Açığı, RCE",
+    "pan_os_rce.py": "Pan OS Uzaktan Kod Yürütme, Oturum Açar ve Belirtilen Kodu yürüter"
 }

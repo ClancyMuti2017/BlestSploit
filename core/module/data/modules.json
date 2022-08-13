@@ -78,7 +78,7 @@
         "version": "2.3.2",
         "prefix": "$1 $2",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "PORT_RANGE": ["Bağlantı noktası aralığı (maks. 65535)", "1-1000"]
         }
     },
@@ -117,7 +117,7 @@
         "version": "1.7.7",
         "prefix": "$1 $2 $3",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "LOCALHOST": ["Dinleme IP adresi (Payload IP Adresi)", ""],
             "PAYLOAD_NAME": ["LOCALHOST seçeneğinden yüklenecek payload adı", ""]
         }
@@ -127,7 +127,7 @@
         "version": "2.2",
         "prefix": "$1",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""]
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""]
         }
     },
     "15": {
@@ -172,7 +172,7 @@
         "version": "2.3.2",
         "prefix": "$1 '$2'",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "COMMAND": ["Yürütme komutu", ""]
         }
     },
@@ -190,7 +190,7 @@
         "version": "1.0",
         "prefix": "$1",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""]
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""]
         }
     },
     "22": {
@@ -198,7 +198,7 @@
         "version": "1.2",
         "prefix": "$1 $2",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "PORT": ["Hedef/Server Port adresi", ""]
         }
     },
@@ -207,7 +207,7 @@
         "version": "1.2.5",
         "prefix": "$1",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""]
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""]
         }
     },
     "24": {
@@ -223,7 +223,7 @@
         "version": "7.x, 6.x, 5.x",
         "prefix": "-T $1 -L $2",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "LOCAL": ["Yerel lokal IP adresiniz", ""]
         }
     },
@@ -232,7 +232,7 @@
         "version": "4.7.13",
         "prefix": "$1 $2 $3 $4",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "PORT": ["Hedef/Server Port adresi", ""],
             "PASSWORD": ["Giriş için şifre", ""],
             "PLUCKCMS_PATH": ["Webshell'i yüklemek için Pluck CMS yolu", ""]
@@ -243,7 +243,7 @@
         "version": "3.3.3",
         "prefix": "$1 $2 $3",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "PASSWORD": ["Giriş için şifre", ""],
             "COMMAND": ["Yürütme komutu", ""]
         }
@@ -253,7 +253,7 @@
         "version": "1.6",
         "prefix": "$1 $2",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "COMMAND": ["Yürütme komutu", ""]
         }
     },
@@ -262,7 +262,7 @@
         "version": "2.6.6",
         "prefix": "$1 $2",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "PORT": ["Hedef/Server Port adresi", ""]
         }
     },
@@ -285,7 +285,7 @@
         "version": "0.1.1",
         "prefix": "-t $1 -u $2 -p $3",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "LOGIN": ["Giriş için giriş adı", "admin"],
             "PASSWORD": ["Giriş için şifre", "admin"]
         }
@@ -304,8 +304,19 @@
         "version": "0.4",
         "prefix": "$1 $2",
         "options": {
-            "TARGET": ["Cihazın/Hedefin IP adresi", ""],
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
             "PORT": ["Hedef/Server Port adresi", ""]
+        }
+    },
+    "35": {
+        "name": "pan_os_rce",
+        "version": "0.5",
+        "prefix": "-t $1 -u $2 -p $3 -c $4",
+        "options": {
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
+            "LOGIN": ["Giriş için giriş adı"],
+            "PASSWORD": ["Giriş için şifre"],
+            "COMMAND": ["Yürütme komutu"]
         }
     }
 }

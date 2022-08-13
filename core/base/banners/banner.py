@@ -318,7 +318,7 @@ rce_windows_exploit.py
 
 
                           > ВСТАВьТЕ ДИСК 1
-                          > C:/RUSSA.BAT
+                          > C:/RUSSIA.BAT
 
 
                         (C) CON-NEX RU 1981

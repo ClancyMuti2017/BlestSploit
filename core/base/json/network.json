@@ -4,7 +4,7 @@
     "hci_path": "/usr/share/blest-framework/network/registry/hci.ini",
     "wlan_path": "/usr/share/blest-framework/network/registry/wlan.ini",
     "config_path": "/usr/share/blest-framework/network/registry/config.ini",
-    "default": {
+    "default_network_devices": {
         "wlan": "wlan0",
         "ble": "hci0"
     }

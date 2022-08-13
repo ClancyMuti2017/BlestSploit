@@ -57,6 +57,7 @@ if version == "":
 exploits = 0
 payloads = 0
 posts = 0
+all_modules = 0
 usbs = 0
 usb_device = "USB cihazı yok"
 broken_modules_int = 0
@@ -109,17 +110,27 @@ else:
                 os.remove("/root/.btf/"+files)
         except:
             pass
-about = '''
-BlestSploit hakkında
-======================
-Yazan                  : Marcus Walker (Ənvər) veya G00Dway
-Bizim Takım            : Blest Boyz
-Bizim Patronumuz       : Fux Walker
-Üyelerimiz (Krediler)  : Nemesis, Rotasız, Dilax, Cyrus, Yakuza, Diğerleri...
+about = f'''
+BlestSploit hakkında, vb.
+================================
+BlestSploit Versiyon        : {version}
+BlestSploit Console Ver.    : {version}
+Blestsploit İlk Sürüm Ver.  : 1.1 ~ {version}
+Tüm Yüklü Modüller          : {all_modules}
+BlestSploit'in dizini       : "/usr/share/blest-framework"  
+Modül Dizini                : "/usr/share/blest-framework/src/data/modules"
+Modüller JSON Dosya Dizini  : "/usr/share/blest-framework/src/data/core/module/data/modules.json"
+
+Geliştiriciler vb. Hakkında
+================================
+Yazan                       : Marcus Walker (Ənvər) veya G00Dway
+Bizim Takım                 : Blest Boyz
+Bizim Patronumuz            : Fux Walker
+Üyelerimiz (Krediler)       : Nemesis, Rotasız, Dilax, Cyrus, Yakuza, Diğerleri...
 
 Sosyal Hesaplar
-======================
-Discord                : https://discord.gg/2qr6U6ggUN
+================================
+Discord                     : https://discord.gg/2qr6U6ggUN
 '''
 commands = '''
 Global Komutlar
@@ -624,8 +635,10 @@ load_modules()
 #     posts += 1
 # for l in loaded_modules_usbs.keys():
 #     usbs += 1
+for i in loaded_modules:
+    all_modules += 1
 welcome = '''
-+ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+Fore.RESET+'''
++ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+'''.stable'''+Fore.RESET+'''
 - -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+''',   
 - -- ---={ Tüm USB Exploitler : '''+str(usbs)+''', Tüm POSTlar : '''+str(posts)+'''
 '''
