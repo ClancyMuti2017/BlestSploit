@@ -314,9 +314,9 @@
         "prefix": "-t $1 -u $2 -p $3 -c $4",
         "options": {
             "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
-            "LOGIN": ["Giriş için giriş adı"],
-            "PASSWORD": ["Giriş için şifre"],
-            "COMMAND": ["Yürütme komutu"]
+            "LOGIN": ["Giriş için giriş adı", ""],
+            "PASSWORD": ["Giriş için şifre", ""],
+            "COMMAND": ["Yürütme komutu", ""]
         }
     }
 }
