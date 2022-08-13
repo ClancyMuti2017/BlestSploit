@@ -637,6 +637,28 @@ load_modules()
 #     usbs += 1
 for i in loaded_modules:
     all_modules += 1
+about = f'''
+BlestSploit hakkında, vb.
+================================
+BlestSploit Versiyon        : {version}
+BlestSploit Console Ver.    : {version}
+Blestsploit İlk Sürüm Ver.  : 1.1 ~ {version}
+Tüm Yüklü Modüller          : {all_modules}
+BlestSploit'in dizini       : "/usr/share/blest-framework"  
+Modül Dizini                : "/usr/share/blest-framework/src/data/modules"
+Modüller JSON Dosya Dizini  : "/usr/share/blest-framework/src/data/core/module/data/modules.json"
+
+Geliştiriciler vb. Hakkında
+================================
+Yazan                       : Marcus Walker (Ənvər) veya G00Dway
+Bizim Takım                 : Blest Boyz
+Bizim Patronumuz            : Fux Walker
+Üyelerimiz (Krediler)       : Nemesis, Rotasız, Dilax, Cyrus, Yakuza, Diğerleri...
+
+Sosyal Hesaplar
+================================
+Discord                     : https://discord.gg/2qr6U6ggUN
+'''
 about = about # for all modules
 welcome = '''
 + -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+'''.stable'''+Fore.RESET+'''
