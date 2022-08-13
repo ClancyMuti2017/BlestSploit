@@ -22,10 +22,11 @@ ardından belirtilen kodu dosyanın sonuna ekleyin
 "bir say":{
             "author": "Ad",
             "name": "modulun dosya adı ama .py, .sh, ve.s olmasın",
-            "prefix": "modulun prefixleri, mesalan: -t $1 -p $2",
+            "prefix": "modulun prefixleri, mesalan: -t $1 -p $2", # $1 - AYAR1, $2 - AYAR2, $2-ni $3 etseniz AYAR2 yinede seçilecek AYAR3 olsada
             "options": { # modulun ayarları
-                  "AYAR": ["AYAR HAKKINDA", ""],
-                  "AYAR2": ["AYAR HAKKINDA", ""] # sonsuz ayar koyabilirsiniz
+                  "AYAR1": ["AYAR HAKKINDA", ""],
+                  "AYAR2": ["AYAR HAKKINDA", ""],
+                  "AYAR3": ["AYAR HAKKINDA", ""] # sonsuz ayar koyabilirsiniz
             }
  }
  ```
