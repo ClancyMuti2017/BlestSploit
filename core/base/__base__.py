@@ -637,6 +637,7 @@ load_modules()
 #     usbs += 1
 for i in loaded_modules:
     all_modules += 1
+about = about # for all modules
 welcome = '''
 + -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+'''.stable'''+Fore.RESET+'''
 - -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+''',   
