@@ -675,6 +675,8 @@ welcome = '''
 - -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+''',   
 - -- ---={ Tüm USB Exploitler : '''+str(usbs)+''', Tüm POSTlar : '''+str(posts)+'''
 '''
+# sys_banner()
+os.system('clear')
 if official_banners:
     show_official_banner()
     bn = 0
@@ -685,6 +687,4 @@ else:
     else:
         show_banner()
         bn = 1
-sys_banner()
-os.system('clear')
 main()
