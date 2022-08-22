@@ -210,10 +210,18 @@ def show_banner():
 def show_official_banner():
     Official_Banner.generate()
     print(Fore.RESET+welcome)
-
 module_descriptions = {}
 mod = {}
+def sys_banner():
+    max_num = 4
+    current = ""
+    script = ['/', '-', '\\', '|']
+    for n in script:
+        sys.stdout.write(Fore.LIGHTBLUE_EX+'[i]'+Fore.RESET+f' Blestsploit Framework Başlatiliyor... [{n}]')
+        time.sleep(0.1)
 
+sys_banner()
+sys_banner()
 def load_modules():
     def desc_module():
         global module_descriptions, loaded_modules, mod
@@ -276,6 +284,7 @@ def load_modules():
         loaded_modules.append(dir)
     use = ""
     current = ""
+    sys_banner()
     for module in get:
         current = ""
         if os.path.isdir(modules+'/'+module):
@@ -340,7 +349,8 @@ def load_modules():
             add_module(use, modules)
     sort_all()
     desc_module()
-
+    sys_banner()
+sys_banner()
 def main():
     global usb_device, execute, devices
     while True:

@@ -74,7 +74,7 @@ except:
 module_prefix = ""
 module_num = ""
 modules_data = json.loads(modules_type)
-# print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{module_cmd}" Seçenekleri Yükleniyor...')
+print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{module_cmd}" yükleniyor...')
 op = []
 for i in modules_data:
     if modules_data[i]['name'] in module_cmd:
@@ -165,7 +165,8 @@ def run():
 
 
 if module_type.lower() == "payload":
-    print(Fore.BLUE+'[i]'+Fore.RESET+f' Yükleme işleyicisi (Handler) Payload "{module_cmd}" İcin yükleniyor...')
+    # print(Fore.BLUE+'[i]'+Fore.RESET+f' Yükleme işleyicisi (Handler) Payload "{module_cmd}" İcin yükleniyor...')
+    pass
 def main():
     while True:
         try:
