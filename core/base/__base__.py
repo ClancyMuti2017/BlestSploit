@@ -217,11 +217,11 @@ def sys_banner():
     current = ""
     script = ['/', '-', '\\', '|']
     for n in script:
-        sys.stdout.write(Fore.LIGHTBLUE_EX+'[i]'+Fore.RESET+f' Blestsploit Framework Başlatiliyor... [{n}]')
-        time.sleep(0.1)
+        sys.stdout.write(Fore.LIGHTBLUE_EX+'\r[i]'+Fore.RESET+f' Blestsploit Framework Başlatiliyor... [{n}]')
+        time.sleep(0.3)
 
 sys_banner()
-sys_banner()
+# sys_banner()
 def load_modules():
     def desc_module():
         global module_descriptions, loaded_modules, mod
@@ -685,4 +685,5 @@ else:
     else:
         show_banner()
         bn = 1
+sys_banner()
 main()
