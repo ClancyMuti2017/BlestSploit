@@ -218,7 +218,7 @@ def sys_banner():
     script = ['/', '-', '\\', '|']
     for n in script:
         sys.stdout.write(Fore.LIGHTBLUE_EX+'\r[i]'+Fore.RESET+f' Blestsploit Framework Başlatiliyor... [{n}]')
-        time.sleep(0.3)
+        time.sleep(0.1)
 
 sys_banner()
 # sys_banner()
@@ -686,4 +686,5 @@ else:
         show_banner()
         bn = 1
 sys_banner()
+os.system('clear')
 main()
