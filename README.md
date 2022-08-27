@@ -9,7 +9,7 @@ bash install-framework.sh
 ```
 ### Kaldırma
 BlestSploit'i sisteminizden kaldırmak için sadece çalıştırın: `bash uninstall-framework.sh`
-# Screenshotlar (V.1.3)
+# Screenshotlar (V.1.3, *eskimiş*)
 ![image](https://user-images.githubusercontent.com/80381071/182795041-580c18f2-f84e-486d-9764-f35093b7ea13.png)
 # Credits
 Krediler gider: `Leatrix`, `Fux Walker`, `Kenn`
