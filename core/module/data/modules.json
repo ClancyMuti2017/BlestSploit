@@ -318,5 +318,13 @@
             "PASSWORD": ["Giriş için şifre", ""],
             "COMMAND": ["Yürütme komutu", ""]
         }
+    },
+    "36": {
+        "name": "autorun_winencrypt",
+        "version": "0.7",
+        "prefix": "$1",
+        "options": {
+            "NAME": ["Virüs dosyasına verilecek isim", ""]
+        }
     }
 }

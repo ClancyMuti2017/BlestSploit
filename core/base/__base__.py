@@ -217,7 +217,7 @@ def sys_banner():
     current = ""
     script = ['/', '-', '\\', '|']
     for n in script:
-        sys.stdout.write(Fore.LIGHTBLUE_EX+'\r[i]'+Fore.RESET+f' Blestsploit Framework Başlatiliyor... [{n}]')
+        sys.stdout.write(Fore.LIGHTBLUE_EX+'\r[i]'+Fore.RESET+f' BlestSploit Framework Başlatılıyor... [{n}]')
         time.sleep(0.1)
 
 sys_banner()
@@ -393,13 +393,16 @@ def main():
                 print(show_commands)
             else:
                 try:
-                    see = ""
+                    see = "Modüller"
                     expl = f'''
-Modüller
+{see}
 -----------'''
                     if btf[1] == '-e':
                         num = 0
                         see = "Exploitler"
+                        expl = f'''
+{see}
+-----------'''
                         if loaded_modules_exploits == {} or loaded_modules_exploits == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Exploitler yok.')
                         else:
@@ -410,6 +413,9 @@ Modüller
                     elif btf[1] == '-p':
                         num = 0
                         see = "Payloadlar"
+                        expl = f'''
+{see}
+-----------'''
                         if loaded_modules_payloads == {} or loaded_modules_payloads == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Payloadlar yok.')
                         else:
@@ -420,6 +426,9 @@ Modüller
                     elif btf[1] == '-ps':
                         num = 0
                         see = "POSTlar"
+                        expl = f'''
+{see}
+-----------'''
                         if loaded_modules_posts == {} or loaded_modules_posts == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' POSTlar yok.')
                         else:
@@ -430,6 +439,9 @@ Modüller
                     elif btf[1] == '-u':
                         num = 0
                         see = "USB Exploitler"
+                        expl = f'''
+{see}
+-----------'''
                         if loaded_modules_usbs == {} or loaded_modules_usbs == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' USB Exploitler yok.')
                         else:
@@ -440,6 +452,9 @@ Modüller
                     elif btf[1] == '-a':
                         num = 0
                         see = "Tüm Modüller"
+                        expl = f'''
+{see}
+-----------'''
                         if loaded_modules_all == {} or loaded_modules_all == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Modüllar yok!.')
                         else:

@@ -28,7 +28,7 @@ Global Komutlar
     --------                        --------
     help                            Mevcut komutları göster, yardım
     clear                           Terminal pencere ekranını temizleyin
-    exit, back                      Blestsploit'ten çıkın, modül kullanımından geri dönün
+    exit, back                      modül kullanımından geri dönün
 
 Modül komutları
 ======================
@@ -74,7 +74,7 @@ except:
 module_prefix = ""
 module_num = ""
 modules_data = json.loads(modules_type)
-print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{module_cmd}" yükleniyor...')
+# print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{module_cmd}" yükleniyor...')
 op = []
 for i in modules_data:
     if modules_data[i]['name'] in module_cmd:
@@ -195,7 +195,7 @@ def main():
 Modül ({Fore.RED}{module_cmd}{Fore.RESET}) seçenekleri
 ==========================================================================
                         
-Ad / değeri
+Ad / değer
 ----------------------
 '''
                             for op in module_options.keys():
