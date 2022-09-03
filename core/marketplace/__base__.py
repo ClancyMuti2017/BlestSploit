@@ -316,7 +316,7 @@ def main():
                     if os.path.exists(core+"/marketplace/data.old.json"):
                         os.remove(core+"/marketplace/data.old.json")
                     os.rename(core+"/marketplace/data.json", core+"/marketplace/data.old.json")
-                    os.system(f"wget \"https://raw.githubusercontent.com/G00Dway/BlestSploit/main/marketplace/data.json\" -q -P {core}/marketplace/data.json")
+                    os.system(f"wget \"https://raw.githubusercontent.com/G00Dway/BlestSploit/main/marketplace/data.json\" -q -P {core}/marketplace")
                     try:
                         if os.path.exists(core+"/marketplace/data.json"):
                             print(Fore.YELLOW+'[+]'+Fore.RESET+' Config dosyaları(nı) başarıyla güncellendi.')
