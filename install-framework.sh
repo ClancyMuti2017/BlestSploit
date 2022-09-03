@@ -8,10 +8,10 @@ mkdir /usr/share/blest-framework
 mkdir /usr/share/blest-framework/devices
 mkdir /usr/share/blest-framework/devices/USB
 echo ""
-echo "[i] Python, Whiptail, Ruby Kontrol etiliyor ve yükleniyor (Python3)..."
+echo "[i] Python, Whiptail, Ruby, Fastjar, Unrar Kontrol etiliyor ve yükleniyor (Python3)..."
 apt install python-is-python3 python3-pip ruby -y &>> cache/apt-log.log
 apt install python2 -y &>> cache/apt-log.log
-apt install whiptail -y &>> cache/apt-log.log
+apt install whiptail fastjar unrar -y &>> cache/apt-log.log
 mkdir /usr/share/blest-framework/files
 mkdir /usr/share/blest-framework/src
 echo "[i] Dosyalar kopyalanıyor... (/usr/share/blest-framework)"

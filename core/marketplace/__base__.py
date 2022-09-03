@@ -85,12 +85,12 @@ def install_module(module):
         print(Fore.BLUE+'[i]'+Fore.RESET+f' "{m}" yükleniyor...')
         def install_main():
             try:
-                os.system(f"{manager} {url} {prefix} {path} &>> {path}/{manager}.log")
+                os.system(f"{manager} {url} {prefix} {path}")
             except:
                 pass
         install_main()
         try:
-            if os.path.exists(marketplace_modules+'/'+zip_name):
+            if os.path.exists(path+'/'+zip_name):
                 pass
             else:
                 print(Fore.RED+'[-]'+Fore.RESET+' Kurulum başarısız oldu, internetiniz var mı? Tekrar deneniyor...')
@@ -99,11 +99,15 @@ def install_module(module):
             pass
         print(Fore.BLUE+'[i]'+Fore.RESET+' İndirme başarılı oldu, kuruluyor...')
         time.sleep(1)
-        os.system(f"unzip {path}/{zip_name} -d {marketplace_modules} &>> {path}/unzip-{zip_name}.log")
+        ch = subprocess.getoutput("unrar")
+        if "command not found" in ch or "command not found".upper() in ch or "command not found".capitalize() in ch:
+            print(Fore.BLUE+'[i]'+Fore.RESET+' Lütfen "UNRAR" Programının Yüklemeyin Bekleyin...')
+        dw = subprocess.getoutput("apt install unrar -y")
+        os.system(f"unrar x {path}/{zip_name} {marketplace_modules} > /dev/null 2>&1")
         time.sleep(1)
         # os.system(f"cp -r {marketplace_modules}/{file_ext} {marketplace_modules}/{module_type} &>> {path}/{file_ext}.log")
         print(Fore.YELLOW+'[+]'+Fore.RESET+f' "{m}" başarıyla yüklendi!')
-        print(Fore.BLUE+'[i]'+Fore.RESET+f" \"{m}\" Yüklemek için Blestsploit'i yeniden başlatmanızı öneririz....")
+        print(Fore.BLUE+'[i]'+Fore.RESET+f" \"{m}\" Yüklemek için Blestsploit'i yeniden başlatmanız öneririz....")
         # print(Fore.BLUE+'[i]'+Fore.RESET+" Eger modül BlestSploit'e yüklenmezse, lütfen BlestSploit'i yeniden başlatın!")
     if module.isdigit():
         for ty in json_data:
