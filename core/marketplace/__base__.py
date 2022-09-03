@@ -270,6 +270,9 @@ def load_modules():
 
 def main():
     while True:
+        s = os.listdir(marketplace_modules)
+        for i in s:
+            installed_modules.append(i)
         try:
             mkf = input(f'\033[4mbtf\033[0m [{Fore.RED}MarketPlace{Fore.RESET}] > ').strip(" ")
         except KeyboardInterrupt:
