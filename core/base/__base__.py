@@ -458,13 +458,13 @@ def main():
                     # btf[1] = btf[1].lower()
                     expl = f'''
 {see}
------------'''
+-----------------'''
                     if btf[1] == '-e' or btf[1] == 'exploits':
                         num = 0
                         see = "Exploitler"
                         expl = f'''
 {see}
------------'''
+-----------------'''
                         if loaded_modules_exploits == {} or loaded_modules_exploits == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Exploitler yok.')
                         else:
@@ -477,7 +477,7 @@ def main():
                         see = "Payloadlar"
                         expl = f'''
 {see}
------------'''
+-----------------'''
                         if loaded_modules_payloads == {} or loaded_modules_payloads == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Payloadlar yok.')
                         else:
@@ -490,7 +490,7 @@ def main():
                         see = "POSTlar"
                         expl = f'''
 {see}
------------'''
+-----------------'''
                         if loaded_modules_posts == {} or loaded_modules_posts == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' POSTlar yok.')
                         else:
@@ -503,7 +503,7 @@ def main():
                         see = "USB Exploitler"
                         expl = f'''
 {see}
------------'''
+-----------------'''
                         if loaded_modules_usbs == {} or loaded_modules_usbs == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' USB Exploitler yok.')
                         else:
@@ -516,7 +516,7 @@ def main():
                         see = "Tüm Modüller"
                         expl = f'''
 {see}
------------'''
+-----------------'''
                         if loaded_modules_all == {} or loaded_modules_all == {'\n'}:
                             print(Fore.RED+'[-]'+Fore.RESET+' Modüller yok!')
                         else:
@@ -524,7 +524,7 @@ def main():
                                 num+=int(all)
                                 expl += "\n"+loaded_modules_all[all]
                             print(f"\n{expl}\n")
-                    elif btf[1] == '-o':
+                    elif btf[1] == '-o' or btf[1] == 'options':
                         print(Fore.RED+'[-]'+Fore.RESET+' Lütfen bu komutu kullanmadan önce bir modül kullanın!')
                     else:
                         print(Fore.RED+'[-]'+Fore.RESET+' Bilinmeyen argument: "'+btf[1]+'"')
