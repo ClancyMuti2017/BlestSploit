@@ -47,6 +47,7 @@ Marketplace komutları
     help                              Mevcut komutları göster, yardım
     clear                             Terminal pencere ekranını temizleyin
     show <arg>                        Tüm modülleri, core dosyalar ve s. görüntüler (Daha fazla bilgi için "show" yazın)
+    update                            MarketPlace config dosyalarını güncelleyin "data.json"
     exit                              MarketPlace'ten çıkın, geri dönün
 
 Yükleme/indirme Komutları
@@ -55,8 +56,8 @@ Yükleme/indirme Komutları
     Komutlar                          Tanım
     --------                          --------
     info <name>                       Belirtilen modül, core dosya vb. hakkında bazı bilgiler gösterin
-    install <id:name>                 Belirtilen modül, core dosya vb. indirin ve yükleyin
-    uninstall <id:name>               Yüklü belirtilen modül, core dosya vb. kaldır
+    install <id>                      Belirtilen modül, core dosya vb. indirin ve yükleyin
+    uninstall <id>                    Yüklü belirtilen modül, core dosya vb. kaldır
 '''
 function_print = '''
 #                Adı
@@ -86,7 +87,7 @@ def install_module(module):
         print(Fore.BLUE+'[i]'+Fore.RESET+f' "{m}" yükleniyor...')
         def install_main():
             try:
-                os.system(f"{manager} {url} {prefix} {path}")
+                os.system(f"{manager} \"{url}\" {prefix} {path}")
             except:
                 pass
         install_main()
@@ -161,7 +162,7 @@ def install_module(module):
     if invalid:
         pass
     else:
-        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz ID/Ad: "'+module+'"')
+        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz ID: "'+module+'"')
 
 
 def remove_module(module):
@@ -221,7 +222,7 @@ def remove_module(module):
     if invalid:
         pass
     else:
-        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz modül, core dosya vb.: "'+module+'"')
+        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz ID: "'+module+'"')
 
 def info_module(value, module):
     accept = False
@@ -308,6 +309,25 @@ def main():
                     pass
         elif mkf[0] == 'exit' or mkf[0] == 'quit':
             sys.exit()
+        elif mkf[0] == 'update':
+            print(Fore.BLUE+'[i]'+Fore.RESET+' Config dosyaları(nı) güncelleme...')
+            try:
+                if os.path.exists(core+"/marketplace/data.json"):
+                    if os.path.exists(core+"/marketplace/data.old.json"):
+                        os.remove(core+"/marketplace/data.old.json")
+                    os.rename(core+"/marketplace/data.json", core+"/marketplace/data.old.json")
+                    os.system(f"wget \"https://raw.githubusercontent.com/G00Dway/BlestSploit/main/marketplace/data.json\" -q -P {core}/marketplace/data.json")
+                    try:
+                        if os.path.exists(core+"/marketplace/data.json"):
+                            print(Fore.YELLOW+'[+]'+Fore.RESET+' Config dosyaları(nı) başarıyla güncellendi.')
+                        else:
+                            print(Fore.RED+'[-]'+Fore.RESET+' Config dosyaları(nı) güncellerken hata, İnternet bağlantınız var mı?')
+                    except:
+                        pass
+                else:
+                    print(Fore.RED+'[-]'+Fore.RESET+' Ölümcül hata: config dosya yolu yok!')
+            except:
+                pass
         elif mkf[0] == 'info':
             if len(mkf) < 2:
                 print(Fore.RED+'[-]'+Fore.RESET+' Kullanım: info <name>')
