@@ -1,20 +1,21 @@
 {
-    "hepsi bir arada (Modüller/Tipler)": {
+    "Everything": {
         "1": {
-            "name": "Windows Keylogger",
-            "type": ["payload", "payloads"],
-            "author": "Fux Walker",
-            "filename": "keylogger-v.zip",
-            "ext_filename": "keylogger-v.py",
-            "description": "Tüm klavye girişlerini /Temp dizinine yazan basit bir keylogger",
+            "name": "Database Cleaner",
+            "type": ["Database cleaner", "cleaner"],
+            "author": "G00Dway",
+            "filename": "btcc.zip",
+            "core": "Core file",
+            "ext_filename": "btcc.py",
+            "description": "Herhangi bir cache, log dosyası varsa kontrol eder ve temizler",
             "language": "python",
-            "version": "1.0",
-            "lookup_name": "Win64-Keylogger",
-            "url": "https://github.com/G00Dway/BlestSploit-archive/releases/download/keylogger-1/keylogger-v.zip",
+            "version": "1.1",
+            "lookup_name": "DB_Cleaner",
+            "url": "https://github.com/G00Dway/BlestSploit-archive/releases/download/dbcleaner1/btcc.zip",
             "download_manager": "wget",
             "prefix": "-q -P",
             "save_path": "/usr/share/blest-framework/files/cache",
-            "pip_depends": ["pynput", "pyinstaller"]
+            "pip_depends": ["colorama", "db.cache"]
         }
     }
 }

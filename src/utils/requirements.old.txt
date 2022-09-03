@@ -1,0 +1,7 @@
+certifi
+charset-normalizer
+idna
+pynput
+requests
+six
+urllib

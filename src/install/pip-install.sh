@@ -1,1 +1,1 @@
-pip3 install colorama scapy jsbeautifier pysocks imports future paramiko bs4 nmap impacket pycrypto requests &>> /usr/share/blest-framework/files/cache/pip-log.log
+pip3 install colorama scapy jsbeautifier pysocks imports future paramiko bs4 nmap impacket googletrans pycrypto requests &>> /usr/share/blest-framework/files/cache/pip-log.log

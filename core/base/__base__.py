@@ -2,25 +2,86 @@
 # from genericpath import isdir
 import json
 import importlib
+import os, subprocess, time, socket, colorama, sys, platform, shutil
+import random
+import configparser
+from colorama import *
+from configparser import *
+try:
+    from googletrans import Translator
+except ImportError:
+    os.system("pip install googletrans &>> /usr/share/blest-framework/files/cache/pip-log.log")
+    print(Fore.RED+'[-]'+Fore.RESET+' Lütfen framework\'u tekrar başlatın.')
+    sys.exit()
 def load_module_data(name):
     load_module = importlib.import_module(name)
     return load_module
-import configparser
-import os, subprocess, time, random, socket, colorama, sys, platform, shutil
-from colorama import *
 # from flask import current_app
 from banners.banner import banner
 from banners.official import banner_official
 from db.cache import cache
 init()
+bt_type = ".dev"
+def init_runtime(path):
+    run = os.listdir(path)
+    if run == [] or run == {}:
+        pass
+    else:
+        for r in run:
+            if os.path.isdir(path+'/'+r):
+                run_1 = os.listdir(path+'/'+r)
+                for n in run_1:
+                    if ".sh" in n:
+                        os.system("bash "+path+'/'+r+"/"+n)
+                    elif ".py" in n:
+                        os.system("python3 "+path+'/'+r+"/"+n)
+            else:
+                if ".sh" in r:
+                    os.system("bash "+path+'/'+r)
+                elif ".py" in r:
+                    os.system("python3 "+path+'/'+r)
+
 Cache = cache()
+translate = Translator()
 Cache.generate()
 database = '/usr/share/blest-framework'
-core = '/usr/share/blest-framework/src/data'
+core = database+'/src/data'
 modules = core+'/modules'
 devices = []
 banners = core+'/core/base/banners/banner.py'
 banners_config = core+'/config.ini'
+langs_config_files = {}
+language_configs = core+'/core/base/language'
+lang_current = ["tr", "TR_tr"]
+languages = os.listdir(language_configs)
+langs = []
+try:
+    if os.path.exists(core+'/src/core/runtime'):
+        init_runtime(core+'/src/core/runtime')
+    else:
+        print(Fore.BLUE+'[i]'+Fore.RESET+' "RUNTIME" dizini mevcut değil, dizin yaratiliyor...')
+        os.mkdir(core+'/src/core/runtime')
+except:
+    pass
+langs_print = []
+try:
+    if os.path.exists(language_configs):
+        pass
+    else:
+        print(Fore.RED+'[-]'+Fore.RESET+' Hata: Dil config dosyaları bulunamadı! Ölümcül hata...')
+        sys.exit(1)
+except:
+    pass
+for lang in languages:
+    langs.append(lang.upper()+"_"+lang.lower())
+    langs_print.append(lang.lower())
+
+# Dillerin Config Dosyalarının Eklenmesi
+for l in langs_print:
+    ch = language_configs+"/"+l
+    ch_list = os.listdir(ch)
+    for i in ch_list:
+        langs_config_files[l] = ch+"/"+i
 read_config_banners = configparser.RawConfigParser()
 read_config_banners.read(banners_config)
 unofficial_banners = None
@@ -123,7 +184,7 @@ Modüller JSON Dosya Dizini  : "/usr/share/blest-framework/src/data/core/module/
 
 Geliştiriciler vb. Hakkında
 ================================
-Yazan                       : Marcus Walker (Ənvər) veya G00Dway
+Yazan                       : Marcus Walker (Ənvər) - G00Dway
 Bizim Takım                 : Blest Boyz
 Bizim Patronumuz            : Fux Walker
 Üyelerimiz (Krediler)       : Nemesis, Rotasız, Dilax, Cyrus, Yakuza, Diğerleri...
@@ -156,7 +217,7 @@ Ana Menü Komutları
     info <name>                     Belirtilen modül hakkında bazı bilgileri gösterin
     edit <name>                     Belirtilen modülü düzenleyin (belirtilen modülde Shellcode kodunu veya Payload'ı değiştirmek istiyorsanız önerilir)
     usb <dev>                       USB modülleri için belirli bir USB cihazı "/dev/sdaX" kullanın (cihazları/sürücüleri görmek için "usb" yazın)
-    marketplace                     Global Modüller Marketplace'i (Modül İndir/Yükle)
+    marketplace                     Global Modüller, Kod Diller, Core Dosyalar Marketplace'i (İndirme/Yükleme)
 
 Database Komutları
 ======================
@@ -179,18 +240,18 @@ Show Komutları
 
     Komutlar                        Tanım
     --------                        --------
-    show -a                         Mevcut tüm Modülleri göster
-    show -e                         Mevcut tüm Exploitler'i göster
-    show -p                         Mevcut tüm Payloadlar'ı göster
-    show -ps                        Mevcut tüm POSTlar'ı göster
-    show -u                         Mevcut tüm USB Exploitler'i göster
+    show -a  (all)                  Mevcut tüm Modülleri göster
+    show -e  (exploits)             Mevcut tüm Exploitler'i göster
+    show -p  (payloads)             Mevcut tüm Payloadlar'ı göster
+    show -ps (posts)                Mevcut tüm POSTlar'ı göster
+    show -u  (usbs)                 Mevcut tüm USB Exploitler'i göster
 
 Show Modül komutları
 ======================
 
     Komutlar                        Tanım
     --------                        --------
-    show -o                         Yüklü modülün seçeneklerini göster
+    show -o (options)               Yüklü modülün seçeneklerini göster
 '''
 json_script = '''
 '''
@@ -355,7 +416,7 @@ def main():
     global usb_device, execute, devices
     while True:
         try:
-            btf = input('\033[4mbtf\033[0m > ').strip(" ")
+            btf = input('\033[4mbtf\033[0m > ').lower().strip(" ")
         except KeyboardInterrupt:
             print(Fore.RED+"\n[-]"+Fore.RESET+' CTRL + C alındı, çıkılıyor...')
             time.sleep(0.2)
@@ -394,10 +455,11 @@ def main():
             else:
                 try:
                     see = "Modüller"
+                    # btf[1] = btf[1].lower()
                     expl = f'''
 {see}
 -----------'''
-                    if btf[1] == '-e':
+                    if btf[1] == '-e' or btf[1] == 'exploits':
                         num = 0
                         see = "Exploitler"
                         expl = f'''
@@ -410,7 +472,7 @@ def main():
                                 num+=int(exploit)
                                 expl += "\n"+loaded_modules_exploits[exploit]
                             print(f"\n{expl}\n")
-                    elif btf[1] == '-p':
+                    elif btf[1] == '-p' or btf[1] == 'payloads':
                         num = 0
                         see = "Payloadlar"
                         expl = f'''
@@ -423,7 +485,7 @@ def main():
                                 num+=int(payload)
                                 expl += "\n"+loaded_modules_payloads[payload]
                             print(f"\n{expl}\n")
-                    elif btf[1] == '-ps':
+                    elif btf[1] == '-ps' or btf[1] == 'posts':
                         num = 0
                         see = "POSTlar"
                         expl = f'''
@@ -436,7 +498,7 @@ def main():
                                 num+=int(post)
                                 expl += "\n"+loaded_modules_posts[post]
                             print(f"\n{expl}\n")
-                    elif btf[1] == '-u':
+                    elif btf[1] == '-u' or btf[1] == 'usbs':
                         num = 0
                         see = "USB Exploitler"
                         expl = f'''
@@ -449,14 +511,14 @@ def main():
                                 num+=int(usb)
                                 expl += "\n"+loaded_modules_usbs[usb]
                             print(f"\n{expl}\n")
-                    elif btf[1] == '-a':
+                    elif btf[1] == '-a' or btf[1] == 'all':
                         num = 0
                         see = "Tüm Modüller"
                         expl = f'''
 {see}
 -----------'''
                         if loaded_modules_all == {} or loaded_modules_all == {'\n'}:
-                            print(Fore.RED+'[-]'+Fore.RESET+' Modüllar yok!.')
+                            print(Fore.RED+'[-]'+Fore.RESET+' Modüller yok!')
                         else:
                             for all in loaded_modules_all.keys():
                                 num+=int(all)
@@ -616,7 +678,7 @@ def main():
                 devices.clear()
                 time.sleep(1)
                 if execute == [] or execute == ['\n'] or execute == {} or execute == ['']:
-                    print(Fore.RED+'[-]'+Fore.RESET+' USB cihazları bulunamadı!')
+                    print(Fore.RED+'[-]'+Fore.RESET+' USB cihazlar bulunamadı!')
                 else:
                     usb_num = 0
                     for i in execute:
@@ -640,8 +702,8 @@ def main():
                     pass
         elif btf[0] == 'marketplace':
             # print(Fore.BLUE+'[i]'+Fore.RESET+' MarketPlace yükleniyor...')
-            print(Fore.BLUE+'[i]'+Fore.RESET+' MarketPlace şu anda mevcut değil, ancak yakında açilacak!')
-            # os.system(f"python3 {core}/core/marketplace/__base__.py")
+            print(Fore.BLUE+'[i]'+Fore.RESET+f" Marketplace'de herhangi bir hata gördüyseniz, lütfen bunları şu adresten bildirin: {Fore.GREEN}https://github.com/G00Dway/BlestSploit/issues{Fore.RESET}")
+            os.system(f"python3 {core}/core/marketplace/__base__.py")
         elif btf[0] == 'update':
             os.system(f"bash {core}/src/update/__update__.sh")
         else:
@@ -684,9 +746,9 @@ Sosyal Hesaplar
 ================================
 Discord                     : https://discord.gg/2qr6U6ggUN
 '''
-about = about # for all modules
+about = about
 welcome = '''
-+ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+'''.stable'''+Fore.RESET+'''
++ -- ---={ '''+Fore.YELLOW+'''BlestSploit Framework V.'''+str(version)+f'''{bt_type}'''+Fore.RESET+'''
 - -- ---={ Tüm Exploitler : '''+str(exploits)+''', Tüm Payloadlar : '''+str(payloads)+''',   
 - -- ---={ Tüm USB Exploitler : '''+str(usbs)+''', Tüm POSTlar : '''+str(posts)+'''
 '''

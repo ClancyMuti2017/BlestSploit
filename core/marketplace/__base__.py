@@ -7,7 +7,14 @@ core = '/usr/share/blest-framework/src/data'
 modules = core+'/modules'
 banners = core+'/core/base/banners/banner.py'
 datas = core+'/marketplace/data.json'
-marketplace_modules = core+'/marketplace/global'
+marketplace_modules = core+'/src/core/runtime'
+try:
+    if os.path.exists(marketplace_modules):
+        pass
+    else:
+        os.mkdir(marketplace_modules)
+except:
+    pass
 ignore = ['.txt', '.log', '.yml', '.yaml', '.ini', '.md']
 add = ['.py', '.pyw', '.c', '.cpp', '.so', '.pl', '.rb']
 installed_modules = []
@@ -28,7 +35,7 @@ Show komutları
 
     Komutlar                          Tanım
     --------                          --------
-    show -a                           Kullanılabilir ve tüm yüklenebilir modülleri göster
+    show -a                           Tüm yüklenebilir modülleri, core dosyaları vb. Göster.
 '''
 commands = '''
 Marketplace komutları
@@ -38,8 +45,7 @@ Marketplace komutları
     --------                          --------
     help                              Mevcut komutları göster, yardım
     clear                             Terminal pencere ekranını temizleyin
-    types                             Kullanılabilir ve tüm yüklenebilir modül tiplerini göster
-    show <arg>                        Tüm modülleri görüntüler (Daha fazla bilgi için "show" yazın)
+    show <arg>                        Tüm modülleri, core dosyalar ve s. görüntüler (Daha fazla bilgi için "show" yazın)
     exit                              MarketPlace'ten çıkın, geri dönün
 
 Yükleme/indirme Komutları
@@ -47,9 +53,9 @@ Yükleme/indirme Komutları
 
     Komutlar                          Tanım
     --------                          --------
-    info <name>                       Belirtilen modül hakkında bilgi gösterin
-    install <id:name>                 Belirtilen modülü indirin ve yükleyin
-    uninstall <id:name>               Belirtilen yüklü modülü kaldırın, silin
+    info <name>                       Belirtilen modül, core dosya vb. hakkında bazı bilgiler gösterin
+    install <id:name>                 Belirtilen modül, core dosya vb. indirin ve yükleyin
+    uninstall <id:name>               Yüklü belirtilen modül, core dosya vb. kaldır
 '''
 function_print = '''
 #                Adı
@@ -76,23 +82,29 @@ def install_module(module):
     invalid = False
     def install(url, manager, path, zip_name, prefix, module_type, file_ext, module_name):
         m = module_name
-        print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{m}" yükleniyor...')
+        print(Fore.BLUE+'[i]'+Fore.RESET+f' "{m}" yükleniyor...')
+        def install_main():
+            try:
+                os.system(f"{manager} {url} {prefix} {path} &>> {path}/{manager}.log")
+            except:
+                pass
+        install_main()
         try:
-            os.system(f"{manager} {url} {prefix} {path} &>> {path}/{manager}.log")
-        except:
-            pass
-        try:
-            if os.path.exists(marketplace_modules+'/'+module_type):
+            if os.path.exists(marketplace_modules+'/'+zip_name):
                 pass
             else:
-                os.mkdir(marketplace_modules+'/'+module_type)
+                print(Fore.RED+'[-]'+Fore.RESET+' Kurulum başarısız oldu, internetiniz var mı? Tekrar deneniyor...')
+                install_main()
         except Exception:
             pass
+        print(Fore.BLUE+'[i]'+Fore.RESET+' İndirme başarılı oldu, kuruluyor...')
+        time.sleep(1)
         os.system(f"unzip {path}/{zip_name} -d {marketplace_modules} &>> {path}/unzip-{zip_name}.log")
         time.sleep(1)
-        os.system(f"cp -r {marketplace_modules}/{file_ext} {marketplace_modules}/{module_type} &>> {path}/{file_ext}.log")
-        print(Fore.YELLOW+'[+]'+Fore.RESET+f' Modül "{m}" başarıyla yüklendi!')
-        print(Fore.BLUE+'[i]'+Fore.RESET+" Eger modül BlestSploit'e yüklenmezse, lütfen BlestSploit'i yeniden başlatın!")
+        # os.system(f"cp -r {marketplace_modules}/{file_ext} {marketplace_modules}/{module_type} &>> {path}/{file_ext}.log")
+        print(Fore.YELLOW+'[+]'+Fore.RESET+f' "{m}" başarıyla yüklendi!')
+        print(Fore.BLUE+'[i]'+Fore.RESET+f" \"{m}\" Yüklemek için Blestsploit'i yeniden başlatmanızı öneririz....")
+        # print(Fore.BLUE+'[i]'+Fore.RESET+" Eger modül BlestSploit'e yüklenmezse, lütfen BlestSploit'i yeniden başlatın!")
     if module.isdigit():
         for ty in json_data:
             if accept:
@@ -100,7 +112,7 @@ def install_module(module):
             for num in json_data[ty]:
                 if json_data[ty][num]['ext_filename'] in installed_modules:
                     n = json_data[ty][num]['lookup_name']
-                    print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{n}" zaten kurulu!')
+                    print(Fore.BLUE+'[i]'+Fore.RESET+f' "{n}" zaten kurulu!')
                     accept = True
                     invalid = True
                     break
@@ -121,7 +133,7 @@ def install_module(module):
                 if json_data[ty][num]['lookup_name'] == module:
                     if json_data[ty][num]['ext_filename'] in installed_modules:
                         n = json_data[ty][num]['lookup_name']
-                        print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{n}" zaten kurulu!')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+f' "{n}" zaten kurulu!')
                         accept = True
                         invalid = True
                         installed = True
@@ -144,7 +156,7 @@ def install_module(module):
     if invalid:
         pass
     else:
-        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül ID/Adı: "'+module+'"')
+        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz ID/Ad: "'+module+'"')
 
 
 def remove_module(module):
@@ -166,15 +178,15 @@ def remove_module(module):
                 if n == module:
                     m = json_data[ty][n]['lookup_name']
                     if json_data[ty][n]['ext_filename'] in installed_modules:
-                        print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{m}" Kaldırılıyor...')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+f' "{m}" Kaldırılıyor...')
                         remove(json_data[ty][n]['ext_filename'], json_data[ty][n]['type'][0])
                         time.sleep(1)
-                        print(Fore.RED+'[-]'+Fore.RESET+f' Modül "{m}" başarıyla kaldırıldı!')
+                        print(Fore.RED+'[-]'+Fore.RESET+f' "{m}" başarıyla kaldırıldı!')
                         accept = True
                         invalid = True
                         break
                     else:
-                        print(Fore.RED+'[-]'+Fore.RESET+f' Modül "{m}" zaten kurulmamış!')
+                        print(Fore.RED+'[-]'+Fore.RESET+f' "{m}" zaten kurulmamış!')
                         accept = True
                         invalid = True
                         break
@@ -186,15 +198,15 @@ def remove_module(module):
                 if json_data[ty][m]['lookup_name'] == module:
                     l = json_data[ty][m]['lookup_name']
                     if json_data[ty][m]['ext_filename'] in installed_modules:
-                        print(Fore.BLUE+'[i]'+Fore.RESET+f' Modül "{l}" Kaldırılıyor...')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+f' "{l}" Kaldırılıyor...')
                         remove(json_data[ty][m]['ext_filename'], json_data[ty][m]['type'][0])
                         time.sleep(1)
-                        print(Fore.RED+'[-]'+Fore.RESET+f' Modül "{l}" başarıyla kaldırıldı!')
+                        print(Fore.RED+'[-]'+Fore.RESET+f' "{l}" başarıyla kaldırıldı!')
                         accept = True
                         invalid = True
                         break
                     else:
-                        print(Fore.RED+'[-]'+Fore.RESET+f' Modül "{l}" zaten kurulmamış!')
+                        print(Fore.RED+'[-]'+Fore.RESET+f' "{l}" zaten kurulmamış!')
                         accept = True
                         invalid = True
                         break
@@ -204,7 +216,7 @@ def remove_module(module):
     if invalid:
         pass
     else:
-        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül: "'+module+'"')
+        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz modül, core dosya vb.: "'+module+'"')
 
 def info_module(value, module):
     accept = False
@@ -218,14 +230,14 @@ def info_module(value, module):
                     break
                 for lookup in json_data[ch][name]:
                     if module == json_data[ch][name]['lookup_name']:
-                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Adı: "'+module+'"')
-                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Başlığı: "'+json_data[ch][name]['name']+'"')
-                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Açıklaması: "'+json_data[ch][name]['description']+'"')
-                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modülü Yazan: "'+json_data[ch][name]['author']+'"')
-                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Tipi: "'+json_data[ch][name]['type'][0]+', "'+ch+'"')
-                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Versiyonu: '+json_data[ch][name]['version'])
-                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Kod Dili: "'+json_data[ch][name]['language']+'"')
-                        print(Fore.BLUE+'[i]'+Fore.RESET+' Modül Kod Dili "'+json_data[ch][name]['language']+'" bağımlılıkları: "'+str(json_data[ch][name]['pip_depends'])+'"')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+' Adı: "'+module+'"')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+' Başlığı: "'+json_data[ch][name]['name']+'"')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+' Açıklaması: "'+json_data[ch][name]['description']+'"')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+' Yazan: "'+json_data[ch][name]['author']+'"')
+                        # print(Fore.BLUE+'[i]'+Fore.RESET+' Tipi: "'+json_data[ch][name]['type'][0]+', "'+ch+'"')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+' Versiyonu: '+json_data[ch][name]['version'])
+                        print(Fore.BLUE+'[i]'+Fore.RESET+' Kod Dili: "'+json_data[ch][name]['language']+'"')
+                        # print(Fore.BLUE+'[i]'+Fore.RESET+' Kod Dili "'+json_data[ch][name]['language']+'" bağımlılıkları: "'+str(json_data[ch][name]['pip_depends'])+'"')
                         to_break = True
                         accept = True
                         break
@@ -266,13 +278,13 @@ def main():
             print(commands)
         elif mkf[0] == 'clear':
             os.system('clear')
-        elif mkf[0] == 'types':
-            print('')
-            print("Mevcut Modül Tipleri")
-            print('-----------------------')
-            for type in types:
-                print(str(type).upper())
-            print('')
+        # elif mkf[0] == 'types':
+        #     print('')
+        #     print("Mevcut Modül Tipleri")
+        #     print('-----------------------')
+        #     for type in types:
+        #         print(str(type).upper())
+        #     print('')
         elif mkf[0] == 'show':
             if len(mkf) < 2:
                 print(show_commands)
@@ -309,7 +321,7 @@ def main():
                     if accept:
                         pass
                     else:
-                        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz Modül Adı: "'+mkf[1]+'"')
+                        print(Fore.RED+'[-]'+Fore.RESET+' Geçersiz modül, core dosya vb. Adı: "'+mkf[1]+'"')
                 except:
                     pass
         elif mkf[0] == 'install':

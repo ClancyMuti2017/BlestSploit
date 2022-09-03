@@ -8,9 +8,10 @@ mkdir /usr/share/blest-framework
 mkdir /usr/share/blest-framework/devices
 mkdir /usr/share/blest-framework/devices/USB
 echo ""
-echo "[i] Python Kontrol etiliyor ve yükleniyor (Python3)..."
-apt install python-is-python3 python3-pip -y &>> cache/apt-log.log
+echo "[i] Python, Whiptail, Ruby Kontrol etiliyor ve yükleniyor (Python3)..."
+apt install python-is-python3 python3-pip ruby -y &>> cache/apt-log.log
 apt install python2 -y &>> cache/apt-log.log
+apt install whiptail -y &>> cache/apt-log.log
 mkdir /usr/share/blest-framework/files
 mkdir /usr/share/blest-framework/src
 echo "[i] Dosyalar kopyalanıyor... (/usr/share/blest-framework)"
@@ -51,7 +52,8 @@ rm -rf /usr/share/blest-framework/src/data/*.md
 mv /usr/share/blest-framework/src/data/install-framework.sh /usr/share/blest-framework/.install
 mv /usr/share/blest-framework/src/data/uninstall-framework.sh /usr/share/blest-framework/.install
 sleep 1
-cat src/install/banner.txt
+# cat src/install/banner.txt
+echo ""
 echo ""
 echo '[i] Bitti, terminalde "btconsole" yazarak BlestSploiti çalıştırabilirsiniz!'
 echo "---------------------------------------------------------------------------"
