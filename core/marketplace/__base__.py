@@ -18,6 +18,7 @@ except:
 ignore = ['.txt', '.log', '.yml', '.yaml', '.ini', '.md']
 add = ['.py', '.pyw', '.c', '.cpp', '.so', '.pl', '.rb']
 installed_modules = []
+installed_modules.clear()
 s = os.listdir(marketplace_modules)
 for i in s:
     installed_modules.append(i)
@@ -269,7 +270,9 @@ def load_modules():
 
 
 def main():
+    global installed_modules
     while True:
+        installed_modules.clear()
         s = os.listdir(marketplace_modules)
         for i in s:
             installed_modules.append(i)
