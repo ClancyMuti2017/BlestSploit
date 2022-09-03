@@ -47,7 +47,7 @@ Marketplace komutları
     help                              Mevcut komutları göster, yardım
     clear                             Terminal pencere ekranını temizleyin
     show <arg>                        Tüm modülleri, core dosyalar ve s. görüntüler (Daha fazla bilgi için "show" yazın)
-    update                            MarketPlace config dosyalarını güncelleyin "data.json"
+    update                            MarketPlace config dosyaları(nı) güncelleyin, "data.json"
     exit                              MarketPlace'ten çıkın, geri dönün
 
 Yükleme/indirme Komutları
@@ -322,6 +322,7 @@ def main():
                             print(Fore.YELLOW+'[+]'+Fore.RESET+' Config dosyaları(nı) başarıyla güncellendi.')
                         else:
                             print(Fore.RED+'[-]'+Fore.RESET+' Config dosyaları(nı) güncellerken hata, İnternet bağlantınız var mı?')
+                            os.rename(core+"/marketplace/data.old.json", core+"/marketplace/data.json")
                     except:
                         pass
                 else:
