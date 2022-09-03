@@ -109,7 +109,7 @@ def install_module(module):
         time.sleep(1)
         # os.system(f"cp -r {marketplace_modules}/{file_ext} {marketplace_modules}/{module_type} &>> {path}/{file_ext}.log")
         print(Fore.YELLOW+'[+]'+Fore.RESET+f' "{m}" başarıyla yüklendi!')
-        print(Fore.BLUE+'[i]'+Fore.RESET+f" \"{m}\" Yüklemek için Blestsploit'i yeniden başlatmanız öneririz....")
+        # print(Fore.BLUE+'[i]'+Fore.RESET+f" \"{m}\" Yüklemek için Blestsploit'i yeniden başlatmanız öneririz....")
         # print(Fore.BLUE+'[i]'+Fore.RESET+" Eger modül BlestSploit'e yüklenmezse, lütfen BlestSploit'i yeniden başlatın!")
     if module.isdigit():
         for ty in json_data:
