@@ -160,20 +160,21 @@ def install_module(module):
             if accept:
                 break
             for num in json_data[ty]:
-                if json_data[ty][num]['ext_filename'] in installed_modules:
-                    n = json_data[ty][num]['lookup_name']
-                    print(Fore.BLUE+'[i]'+Fore.RESET+f' "{n}" zaten kurulu!')
-                    accept = True
-                    invalid = True
-                    break
-                else:
-                    if num == module:
-                        install(json_data[ty][num]['url'], json_data[ty][num]['download_manager'], json_data[ty][num]['save_path'], json_data[ty][num]['filename'], json_data[ty][num]['prefix'], json_data[ty][num]['core'], json_data[ty][num]['ext_filename'], json_data[ty][num]['lookup_name'], json_data[ty][num]['language'])
+                if num == module:
+                    if json_data[ty][num]['ext_filename'] in installed_modules:
+                        n = json_data[ty][num]['lookup_name']
+                        print(Fore.BLUE+'[i]'+Fore.RESET+f' "{n}" zaten kurulu!')
                         accept = True
                         invalid = True
                         break
                     else:
-                        invalid = False
+                        if num == module:
+                            install(json_data[ty][num]['url'], json_data[ty][num]['download_manager'], json_data[ty][num]['save_path'], json_data[ty][num]['filename'], json_data[ty][num]['prefix'], json_data[ty][num]['core'], json_data[ty][num]['ext_filename'], json_data[ty][num]['lookup_name'], json_data[ty][num]['language'])
+                            accept = True
+                            invalid = True
+                            break
+                        else:
+                            invalid = False
     else:
         installed = True
         for ty in json_data:
