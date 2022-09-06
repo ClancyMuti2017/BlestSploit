@@ -230,7 +230,7 @@ def remove_module(module):
                     m = json_data[ty][n]['lookup_name']
                     if json_data[ty][n]['ext_filename'] in installed_modules:
                         print(Fore.BLUE+'[i]'+Fore.RESET+f' "{m}" Kaldırılıyor...')
-                        remove(json_data[ty][n]['ext_filename'], json_data[ty][n]['type'][0])
+                        remove(json_data[ty][n]['ext_filename'], json_data[ty][n]['filename'])
                         time.sleep(1)
                         print(Fore.RED+'[-]'+Fore.RESET+f' "{m}" başarıyla kaldırıldı!')
                         accept = True
@@ -250,7 +250,7 @@ def remove_module(module):
                     l = json_data[ty][m]['lookup_name']
                     if json_data[ty][m]['ext_filename'] in installed_modules:
                         print(Fore.BLUE+'[i]'+Fore.RESET+f' "{l}" Kaldırılıyor...')
-                        remove(json_data[ty][m]['ext_filename'], json_data[ty][m]['type'][0])
+                        remove(json_data[ty][m]['ext_filename'], json_data[ty][m]['filename'])
                         time.sleep(1)
                         print(Fore.RED+'[-]'+Fore.RESET+f' "{l}" başarıyla kaldırıldı!')
                         accept = True
