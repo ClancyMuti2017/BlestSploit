@@ -17,6 +17,12 @@ except:
     pass
 ignore = ['.txt', '.log', '.yml', '.yaml', '.ini', '.md']
 add = ['.py', '.pyw', '.c', '.cpp', '.so', '.pl', '.rb']
+add_types = {
+    ".py": "python3",
+    ".sh": "bash",
+    ".rb": "ruby",
+    ".pl": "perl"
+}
 installed_modules = []
 installed_modules.clear()
 s = os.listdir(marketplace_modules)
@@ -47,7 +53,7 @@ Marketplace komutları
     help                              Mevcut komutları göster, yardım
     clear                             Terminal pencere ekranını temizleyin
     show <arg>                        Tüm modülleri, core dosyalar ve s. görüntüler (Daha fazla bilgi için "show" yazın)
-    update                            MarketPlace config dosyaları(nı) güncelleyin, "data.json"
+    update                            MarketPlace config dosyalarını güncelleyin "data.json"
     exit                              MarketPlace'ten çıkın, geri dönün
 
 Yükleme/indirme Komutları
@@ -78,12 +84,26 @@ json_data = json.loads(json_script)
 for ty in json_data:
     types.append(ty)
 
+def error_code(code):
+    if code == "setup":
+        return "S512"
+    elif code == "download":
+        return "D512"
+    elif code == "install":
+        return "I512"
+    elif code == "extract":
+        return "E512"
+    else:
+        return "0000"
+
+
 
 def install_module(module):
     accept = False
     invalid = False
-    def install(url, manager, path, zip_name, prefix, module_type, file_ext, module_name):
+    def install(url, manager, path, zip_name, prefix, main_type, file_ext, module_name, module_lang):
         m = module_name
+        lang = module_lang
         print(Fore.BLUE+'[i]'+Fore.RESET+f' "{m}" yükleniyor...')
         def install_main():
             try:
@@ -95,21 +115,45 @@ def install_module(module):
             if os.path.exists(path+'/'+zip_name):
                 pass
             else:
-                print(Fore.RED+'[-]'+Fore.RESET+' Kurulum başarısız oldu, internetiniz var mı? Tekrar deneniyor...')
-                install_main()
+                print(Fore.RED+'[-]'+Fore.RESET+' Indirme başarısız oldu, Hata kodu: '+error_code("download"))
         except Exception:
             pass
+        main_error = False
         print(Fore.BLUE+'[i]'+Fore.RESET+' İndirme başarılı oldu, kuruluyor...')
         time.sleep(1)
         ch = subprocess.getoutput("unrar")
         if "command not found" in ch or "command not found".upper() in ch or "command not found".capitalize() in ch:
-            print(Fore.BLUE+'[i]'+Fore.RESET+' Lütfen "UNRAR" Programının Yüklemeyin Bekleyin...')
+            print(Fore.BLUE+'[i]'+Fore.RESET+' Lütfen "UNRAR" Programının Yüklemeyini Bekleyin...')
         dw = subprocess.getoutput("apt install unrar -y")
-        os.system(f"unrar x {path}/{zip_name} {marketplace_modules} > /dev/null 2>&1")
+        unpacking = subprocess.getoutput(f"unrar x {path}/{zip_name} {marketplace_modules} > /dev/null 2>&1")
+        if "command not found" in unpacking or "command not found".upper() in unpacking or "command not found".capitalize() in unpacking or "error".capitalize() in unpacking or "error" in unpacking or "error".upper() in unpacking:
+            print(Fore.RED+'[-]'+Fore.RESET+' Kurulum başarısız oldu, Hata kodu: '+error_code("extract"))
+            main_error = True
+        error = False
+        for i in add:
+            try:
+                if os.path.exists(marketplace_modules+'/'+file_ext):
+                    if i in file_ext:
+                        type_name = ""
+                        try:
+                            type_name = add_types[i]
+                        except KeyError:
+                            type_name = "./"
+                            os.system(f"chmod +x {marketplace_modules}/{file_ext}")
+                        os.system(type_name+f" {marketplace_modules}/{file_ext}")
+                        break
+                else:
+                    print(Fore.RED+'[-]'+Fore.RESET+f' Hata, "{m}" yüklenemiyor...')
+                    error = True
+            except:
+                pass
         time.sleep(1)
         # os.system(f"cp -r {marketplace_modules}/{file_ext} {marketplace_modules}/{module_type} &>> {path}/{file_ext}.log")
-        print(Fore.YELLOW+'[+]'+Fore.RESET+f' "{m}" başarıyla yüklendi!')
-        # print(Fore.BLUE+'[i]'+Fore.RESET+f" \"{m}\" Yüklemek için Blestsploit'i yeniden başlatmanız öneririz....")
+        if error == False:
+            print(Fore.YELLOW+'[+]'+Fore.RESET+f' "{m}" başarıyla yüklendi!')
+        else:
+            print(Fore.RED+'[-]'+Fore.RESET+f' "{m}" yüklenemedi, Hata kodu: '+error_code("setup"))
+        # print(Fore.BLUE+'[i]'+Fore.RESET+f" \"{m}\" Yüklemek için BlestSploit'i yeniden başlatmanız önerlidir....")
         # print(Fore.BLUE+'[i]'+Fore.RESET+" Eger modül BlestSploit'e yüklenmezse, lütfen BlestSploit'i yeniden başlatın!")
     if module.isdigit():
         for ty in json_data:
@@ -124,7 +168,7 @@ def install_module(module):
                     break
                 else:
                     if num == module:
-                        install(json_data[ty][num]['url'], json_data[ty][num]['download_manager'], json_data[ty][num]['save_path'], json_data[ty][num]['filename'], json_data[ty][num]['prefix'], json_data[ty][num]['type'][0], json_data[ty][num]['ext_filename'], json_data[ty][num]['lookup_name'])
+                        install(json_data[ty][num]['url'], json_data[ty][num]['download_manager'], json_data[ty][num]['save_path'], json_data[ty][num]['filename'], json_data[ty][num]['prefix'], json_data[ty][num]['core'], json_data[ty][num]['ext_filename'], json_data[ty][num]['lookup_name'], json_data[ty][num]['language'])
                         accept = True
                         invalid = True
                         break
@@ -153,7 +197,7 @@ def install_module(module):
                 for num in json_data[ty]:
                     for name in json_data[ty][num]["lookup_name"]:
                         if name == module:
-                            install(json_data[ty][num]['url'], json_data[ty][num]['download_manager'], json_data[ty][num]['save_path'], json_data[ty][num]['filename'], json_data[ty][num]['prefix'], json_data[ty][num]['type'][0], json_data[ty][num]['ext_filename'], json_data[ty][num]['lookup_name'])
+                            install(json_data[ty][num]['url'], json_data[ty][num]['download_manager'], json_data[ty][num]['save_path'], json_data[ty][num]['filename'], json_data[ty][num]['prefix'], json_data[ty][num]['core'], json_data[ty][num]['ext_filename'], json_data[ty][num]['lookup_name'], json_data[ty][num]['language'])
                             accept = True
                             invalid = True
                             break
@@ -243,6 +287,7 @@ def info_module(value, module):
                         # print(Fore.BLUE+'[i]'+Fore.RESET+' Tipi: "'+json_data[ch][name]['type'][0]+', "'+ch+'"')
                         print(Fore.BLUE+'[i]'+Fore.RESET+' Versiyonu: '+json_data[ch][name]['version'])
                         print(Fore.BLUE+'[i]'+Fore.RESET+' Kod Dili: "'+json_data[ch][name]['language']+'"')
+                        print(Fore.BLUE+'[i]'+Fore.RESET+' Tipi: "'+json_data[ch][name]['core']+'"')
                         # print(Fore.BLUE+'[i]'+Fore.RESET+' Kod Dili "'+json_data[ch][name]['language']+'" bağımlılıkları: "'+str(json_data[ch][name]['pip_depends'])+'"')
                         to_break = True
                         accept = True
@@ -322,7 +367,6 @@ def main():
                             print(Fore.YELLOW+'[+]'+Fore.RESET+' Config dosyaları(nı) başarıyla güncellendi.')
                         else:
                             print(Fore.RED+'[-]'+Fore.RESET+' Config dosyaları(nı) güncellerken hata, İnternet bağlantınız var mı?')
-                            os.rename(core+"/marketplace/data.old.json", core+"/marketplace/data.json")
                     except:
                         pass
                 else:

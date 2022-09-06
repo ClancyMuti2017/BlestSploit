@@ -2,7 +2,6 @@
     "Everything": {
         "1": {
             "name": "Database Cleaner",
-            "type": ["Database cleaner", "cleaner"],
             "author": "G00Dway",
             "filename": "btcc.rar",
             "core": "Core file",
@@ -10,12 +9,27 @@
             "description": "Herhangi bir cache, log dosyası varsa kontrol eder ve temizler",
             "language": "python",
             "version": "1.1",
-            "lookup_name": "DB_Cleaner",
+            "lookup_name": "database_cleaner",
             "url": "https://github.com/G00Dway/BlestSploit-archive/releases/download/dbcleaner1/btcc.rar",
             "download_manager": "wget",
             "prefix": "-q -P",
             "save_path": "/usr/share/blest-framework/files/cache",
-            "pip_depends": ["colorama", "db.cache"]
+            "pip_depends": ["colorama"]
+        },
+        "2": {
+            "name": "Ruby Support",
+            "author": "G00Dway",
+            "filename": "rb.rar",
+            "core": "Core file",
+            "ext_filename": "rb_core.py",
+            "description": "BlestSploit için Ruby dil desteği ekler",
+            "language": "python",
+            "version": "0.6",
+            "lookup_name": "ruby_support",
+            "url": "https://github.com/G00Dway/BlestSploit-archive/releases/download/support1/rb.rar",
+            "download_manager": "wget",
+            "prefix": "-q -P",
+            "save_path": "/usr/share/blest-framework/files/cache"
         }
     }
 }

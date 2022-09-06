@@ -34,5 +34,6 @@
     "push_gen.py": "Shellcode yazma aracı. Yıgmak için üzerine (push) bir dize verir ve karşılık gelen Shellcode (push) talimatlarını oluşturur.",
     "freefloat_ftp.py": "Freefloat FTP Sunucu Server'i Taşma Güvenlik Açığı, RCE",
     "pan_os_rce.py": "Pan OS Uzaktan Kod Yürütme, Oturum Açar ve Belirtilen Kodu yürüter",
-    "autorun_winencrypt.py": "Tüm dosyaları şifreleyen, tüm antivirüs hizmetlerini durduran ve sistem dosyalarını kendi başına değiştiren bir USB virüsü"
+    "autorun_winencrypt.py": "Tüm dosyaları şifreleyen, tüm antivirüs hizmetlerini durduran ve sistem dosyalarını kendi başına değiştiren bir USB virüsü",
+    "dos_web.py": "Bir DoS (Hizmet Reddetme) aracı, hedefe birçok paket gönderir ve onu yavaşlatır veya öldürür"
 }

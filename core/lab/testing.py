@@ -30,9 +30,9 @@ for i in range(11):
 js = '''
 {
     "1": {
-        "ok": "ye",
+        "ok": "ok",
         "options": {
-            "1": "your"
+            "1": "name"
         }
     }
 }

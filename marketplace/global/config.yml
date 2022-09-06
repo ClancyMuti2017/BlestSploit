@@ -1,9 +1,4 @@
-# Config file of marketplace modules, download / install
-# -------------------------------------------------------
 marketplace: true
-# Base marketplace, (false to disable)
-
-
 modules: blest-framework/marketplace/modules
 all_modules: blest-framework/modules
 source: https://github.com/G00Dway/BlestSploit/releases

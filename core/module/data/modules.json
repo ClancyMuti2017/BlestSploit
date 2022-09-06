@@ -330,5 +330,14 @@
         "options": {
             "NAME": ["Virüs dosyasına verilecek isim", ""]
         }
+    },
+    "37": {
+        "name": "dos_web",
+        "version": "0.1",
+        "prefix": "$1 $2",
+        "options": {
+            "TARGET": ["Cihazın/Hedefin IP/URL adresi", ""],
+            "PORT": ["Hedef/Server Port adresi", ""]
+        }
     }
 }

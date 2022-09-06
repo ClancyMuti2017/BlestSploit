@@ -21,7 +21,7 @@ from banners.banner import banner
 from banners.official import banner_official
 from db.cache import cache
 init()
-bt_type = ".dev"
+bt_type = ".stable"
 def init_runtime(path):
     run = os.listdir(path)
     if run == [] or run == {}:
@@ -701,8 +701,9 @@ def main():
                 except:
                     pass
         elif btf[0] == 'marketplace':
+            time.sleep(0.5)
             # print(Fore.BLUE+'[i]'+Fore.RESET+' MarketPlace yükleniyor...')
-            print(Fore.BLUE+'[i]'+Fore.RESET+f" Marketplace'de herhangi bir hata gördüyseniz, lütfen bunları şu adresten bildirin: {Fore.GREEN}https://github.com/G00Dway/BlestSploit/issues{Fore.RESET}")
+            # print(Fore.BLUE+'[i]'+Fore.RESET+f" Marketplace'de herhangi bir hata gördüyseniz, lütfen bunları şu adresten bildirin: {Fore.GREEN}https://github.com/G00Dway/BlestSploit/issues{Fore.RESET}")
             os.system(f"python3 {core}/core/marketplace/__base__.py")
         elif btf[0] == 'update':
             os.system(f"bash {core}/src/update/__update__.sh")
